@@ -5,7 +5,7 @@ const connectDB = require('./config/db')
 dotenv.config({path: './config/config.env'})
 connectDB()
 const app = express()
-
+app.use("/assets", express.static(__dirname + "/assets"));
 
 const PORT = process.env.PORT || 5000
 
