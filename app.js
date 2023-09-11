@@ -16,4 +16,3 @@ app.listen(
     `Sever running in ${process.env.NODE_ENV} mode on http://localhost:${PORT}`
   )
 );
-// hello world!
