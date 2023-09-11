@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome to My App</h1>
+    <p>Please sign in with your Google account:</p>
+    <div id="firebaseui-auth-container"></div>
+    <button id="Register" value="Register">Register</button>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+        import { getAuth, getRedirectResult, signInWithRedirect, GoogleAuthProvider, getAdditionalUserInfo } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
+            authDomain: "sih-e-f67f9.firebaseapp.com",
+            projectId: "sih-e-f67f9",
+            storageBucket: "sih-e-f67f9.appspot.com",
+            messagingSenderId: "113038032158",
+            appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
+            measurementId: "G-FWVHBTC79W"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+        const analytics = getAnalytics(app);
+        
+        const Register = document.getElementById("Register");
+
+        Register.addEventListener('click', function () {
+            signInWithRedirect(auth, provider);
+        });
+
+        getRedirectResult(auth)
+            .then((result) => {
+                if (result.credential) {
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                }
+
+                // The signed-in user info.
+                const user = result.user;
+                const additionalUserInfo = getAdditionalUserInfo(result);
+                if (additionalUserInfo.isNewUser) {
+                    // Redirect to details page
+                    window.location.href = "home.html";
+                } else {
+                    // Redirect to dashboard
+                    window.location.href = "https://www.example.com/dashboard";
+                }
+            })
+            .catch((error) => {
+                console.error("Authentication Error:", error);
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error("Error Code:", errorCode);
+                console.error("Error Message:", errorMessage);
+
+                if (error.customData) {
+                    const email = error.customData.email;
+                    console.error("Email:", email);
+                }
+
+                if (error.credential) {
+                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    console.error("Credential:", credential);
+                }
+            });
+    </script>
+</body>
+
+</html>
