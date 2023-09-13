@@ -8,6 +8,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
+
 </head>
 
 <body>
@@ -27,6 +28,7 @@
             <option value="college">College</option>
         </select><br>
 
+
         <label>You are: </label>
         <select id="youAre" required>
             <option value="student">Student</option>
@@ -44,7 +46,7 @@
         <input type="submit" value="Submit">
     </form>
     <script>
-        const firebaseConfig = {
+         const firebaseConfig = {
             apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
             authDomain: "sih-e-f67f9.firebaseapp.com",
             databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
@@ -54,7 +56,6 @@
             appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
             measurementId: "G-FWVHBTC79W"
         };
-
         const app = firebase.initializeApp(firebaseConfig);
         const auth = app.auth();
         const database = app.database();
@@ -87,7 +88,23 @@
                 userRef.set(data)
                     .then(() => {
                         alert("Data saved successfully.");
-                        window.location.href = 'dashboard.html';
+                        youAre = document.getElementById("youAre").value;
+                        if (youAre === 'mentor') {
+                            // User is a mentor, redirect to mentor dashboard
+                            window.location.href = 'mentor_dashboard.html';
+                        } else if (youAre === 'student') {
+                            let clas = document.getElementById('class').value;
+                            if (clas == 'primary') {
+                                window.location.href = 'primary_dashboard';
+                            }
+                            else if (clas == 'secondry') {
+                                window.location.href = 'secondary_dashboard';
+                            }
+                            else {
+                                window.location.href = 'college_dashboard';
+                            }
+                        }
+
                     })
                     .catch((error) => {
                         console.error("Error saving data: ", error);
@@ -101,6 +118,7 @@
         });
 
     </script>
+  
 </body>
 
 </html>
