@@ -9,6 +9,10 @@ router.get('/college/study',(req,res) =>{
     res.render("college/study");
 });
 
+router.get('/college/coding',(req,res) =>{
+    res.render("college/coding");
+});
+
 router.get('/college/profile',(req,res) =>{
     res.render("college/profile");
 });
