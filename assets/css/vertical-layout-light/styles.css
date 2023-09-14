@@ -12762,10 +12762,6 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   padding-bottom: 0.5rem;
 }
 
-.nav-bg{
-  background-image: url(/images/bg.png);  
-}
-
 .navbar > .container,
 .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
   display: flex;
@@ -12789,7 +12785,6 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  background-image: url(/images/clouds.jpg);
 }
 
 .navbar-nav .nav-link {
@@ -13113,14 +13108,10 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #b1faad;
+  background-color: #fff;
   background-clip: border-box;
   border: 1px solid #e3e3e3;
   border-radius: 20px;
-}
-
-.card-car{
-  background-color: black;
 }
 
 .card > hr {
@@ -15369,7 +15360,6 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 
 .d-none, .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right .nav-item.nav-settings {
   display: none !important;
-  background-image: url(/images/bg.png);  
 }
 
 .shadow {
@@ -16396,7 +16386,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .bg-primary, .settings-panel .color-tiles .tiles.primary {
-  background-color:#000 !important;
+  background-color: #1F3BB3 !important;
 }
 
 .bg-secondary {
@@ -16428,7 +16418,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .bg-body {
-  background-color: #ffffff !important;
+  background-color: #fff !important;
 }
 
 .bg-white {
@@ -22274,7 +22264,7 @@ code {
 }
 
 .card.table-darkBGImg {
-  background: #000 url("/images/pikachu.png") repeat-y right top;
+  background: #1E283D url("../../images/dashboard/darkBG.png") repeat-y right top;
 }
 
 .card.tale-bg {
@@ -28390,7 +28380,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background-image: url(/images/bg.png);
+  background: #F4F5F7;
   padding: 1.5rem 2.187rem 1.5rem 3.5rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -28416,7 +28406,6 @@ div.tagsinput span.tag a {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  background-image: url(/images/bg.png);
 }
 
 .sidebar .nav {
@@ -28424,7 +28413,6 @@ div.tagsinput span.tag a {
   flex-wrap: nowrap;
   flex-direction: column;
   margin-bottom: 60px;
-  background-image: url(/images/bg.png);
 }
 
 .sidebar .nav .nav-item {
@@ -28797,12 +28785,10 @@ div.tagsinput span.tag a {
   width: 220px;
   height: 97px;
   padding: 20px 35px;
-  background-image: url(/images/clouds.jpg);
 }
 
 .sidebar-dark .navbar .navbar-brand-wrapper {
   background: #232227;
-  
 }
 
 @media (max-width: 991px) {
