@@ -17,4 +17,11 @@ router.get("/secondary/profile", (req, res) => {
   res.render("secondary/profile");
 });
 
+router.get("/secondary/quiz", (req, res) => {
+  res.render("Quiz/quiz");
+});
+
+router.get("/quiz", (req, res) => {
+  res.render("Quiz/quiz");
+});
 export default router;
