@@ -12785,6 +12785,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  background-image: url(/images/);
 }
 
 .navbar-nav .nav-link {
@@ -13108,10 +13109,14 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #b1faad;
   background-clip: border-box;
   border: 1px solid #e3e3e3;
   border-radius: 20px;
+}
+
+.card-car{
+  background-color: black;
 }
 
 .card > hr {
@@ -16386,7 +16391,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .bg-primary, .settings-panel .color-tiles .tiles.primary {
-  background-color: #1F3BB3 !important;
+  background-color:#000 !important;
 }
 
 .bg-secondary {
@@ -22264,7 +22269,7 @@ code {
 }
 
 .card.table-darkBGImg {
-  background: #1E283D url("../../images/dashboard/darkBG.png") repeat-y right top;
+  background: #000 url("/images/pikachu.png") repeat-y right top;
 }
 
 .card.tale-bg {
@@ -28380,7 +28385,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background: #F4F5F7;
+  background-image: url(/images/bg.png);
   padding: 1.5rem 2.187rem 1.5rem 3.5rem;
   width: 100%;
   -webkit-flex-grow: 1;
