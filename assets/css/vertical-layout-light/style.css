@@ -13116,7 +13116,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .card-car{
-  background-color: black;
+  background-color: #FF9B50;
 }
 
 .card-form{
@@ -16401,7 +16401,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .bg-primary, .settings-panel .color-tiles .tiles.primary {
-  background-color:#000 !important;
+  background-color:white !important;
 }
 
 .bg-secondary {
@@ -22279,7 +22279,7 @@ code {
 }
 
 .card.table-darkBGImg {
-  background: #000 url("/images/pikachu.png") repeat-y right top;
+  background: #26577C url("/images/pikachu.png") repeat-y right top;
 }
 
 .card.tale-bg {
