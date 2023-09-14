@@ -6,6 +6,8 @@ import collegeRoutes from "./routes/college.js";
 import primaryRoutes from "./routes/primary.js";
 import secondaryRoutes from "./routes/secondary.js";
 import homeRoutes from "./routes/home.js";
+
+
 import path from 'path';
 
 config({ path: "./config/config.env" });
@@ -25,6 +27,7 @@ app.use(collegeRoutes);
 app.use(primaryRoutes);
 app.use(secondaryRoutes);
 app.use(homeRoutes);
+
 const PORT = process.env.PORT || 5000;
 app.listen(
   PORT,

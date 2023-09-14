@@ -31,6 +31,9 @@
             measurementId: "G-FWVHBTC79W"
         };
 
+        
+
+
         const app = firebase.initializeApp(firebaseConfig);
         const auth = app.auth();
         const database = app.database();
@@ -67,13 +70,15 @@
                                     } else if (youAre === 'student') {
                                         var clas = userData.class;
                                         if (clas == 'primary') {
-                                            window.location.href = 'primary_dashboard';
+                                            
+                                            window.location.href = '/primary/dashboard';
                                         }
                                         else if (clas == 'secondry') {
-                                            window.location.href = 'secondary_dashboard';
+                                            window.location.href = '/secondary/dashboard';
                                         }
                                         else {
-                                            window.location.href = 'college_dashboard';
+                                            
+                                            window.location.href = '/college/dashboard';
                                         }
 
                                     }

@@ -25,7 +25,8 @@
     "mongoose": "^7.5.0",
     "morgan": "^1.10.0",
     "passport": "^0.6.0",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "razorpay": "^2.9.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.15",

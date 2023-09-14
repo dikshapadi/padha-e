@@ -17,22 +17,4 @@ router.get("/secondary/profile", (req, res) => {
   res.render("secondary/profile");
 });
 
-router.get("/login", (req, res) => {
-  res.render("login/index");
-});
-
-router.get("/user_input", (req, res) => {
-  res.render("login/user_input");
-});
-
-router.get("/primary_dashboard", (req, res) => {
-  res.render("primary/dashboard");
-});
-router.get("/secondary_dashboard", (req, res) => {
-  res.render("secondary/dashboard");
-});
-router.get("/college_dashboard", (req, res) => {
-  res.render("college/dashboard");
-});
-
 export default router;

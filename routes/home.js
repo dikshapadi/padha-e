@@ -18,5 +18,12 @@ router.get('/home/mentor', (req,res) => {
 	res.render("home/mentor");
 });
 
+router.get('/login',(req,res) =>{
+    res.render("login/index");
+});
+
+router.get('/user_input',(req,res) =>{
+    res.render("login/user_input");
+});
 
 export default router;
