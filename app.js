@@ -5,6 +5,7 @@ import { config } from "dotenv";
 import collegeRoutes from "./routes/college.js";
 import primaryRoutes from "./routes/primary.js";
 import secondaryRoutes from "./routes/secondary.js";
+import mentorRoutes from "./routes/mentor.js";
 import homeRoutes from "./routes/home.js";
 
 
@@ -26,6 +27,7 @@ app.set("view engine", "ejs");
 app.use(collegeRoutes);
 app.use(primaryRoutes);
 app.use(secondaryRoutes);
+app.use(mentorRoutes);
 app.use(homeRoutes);
 
 const PORT = process.env.PORT || 5000;

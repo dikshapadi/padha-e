@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mentor Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        /* Center-align text and image */
+        body {
+            text-align: center;
+            position: relative; /* Add relative positioning to the body */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto; /* Center horizontally */
+            margin-bottom: 20px; /* Add space below the image */
+        }
+
+        /* Style the buttons */
+        button {
+            padding: 15px 30px; /* Increase button size */
+            margin: 65px 65px 65px 65px; /* Add space between buttons */
+            font-size: 18px; /* Increase font size */
+        }
+        #menteeList {
+            text-align: center; /* Center-align "Mentee List" */
+        }
+
+        /* Style for the "No mentees to display" text */
+        #menteeListItems {
+            text-align: center; /* Center-align the text */
+            font-size: 24px; /* Increase font size */
+            color: red; /* Make the text red */
+        }
+
+        /* Style for the Google Translate element */
+        #google_translate_element {
+            position: absolute;
+            top: 20px; /* Adjust the top position to your preference */
+            right: 20px; /* Adjust the right position to your preference */
+        }
+    </style>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<div id="google_translate_element"></div>
+<br><br>
+<h1>Mentor Dashboard</h1>
+<br><br>
+<!-- Add your image source and alt text as needed -->
+<img src="/images/mentor_main.png" alt="Mentor Image" width="80%">
+<br>
+<!-- Buttons with increased size and spacing -->
+<button id="showMenteeListBtn">Show Mentee List</button>
+<button id="uploadCourseBtn">Upload Course</button>
+<button id="goToRDSectionBtn">Go to R&D Section</button>
+<button id="inviteMenteeForRDBtn">Invite a Mentee for R&D</button>
+
+<!-- Empty mentee list initially hidden -->
+<div id="menteeList" style="display: none;">
+    <h2>Mentee List</h2>
+    <ul id="menteeListItems">
+        <!-- Empty list to be populated dynamically -->
+    </ul>
+</div>
+
+<!-- R&D Section content initially hidden -->
+<div id="rdSection" style="display: none;">
+    <h2>R&D Section</h2>
+    <!-- Add your R&D section content here -->
+</div>
+
+<!-- Input element for file upload (hidden by default) -->
+<input type="file" id="fileInput" style="display: none;" multiple>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- JavaScript to handle button clicks -->
+<script>
+    function googleTranslateElementInit(){
+        new google.translate.TranslateElement(
+            {pageLanguage:'en'},
+            'google_translate_element'
+        );
+    }
+    // Show the mentee list when the button is clicked
+    document.getElementById("showMenteeListBtn").addEventListener("click", function () {
+        // Get the mentee list container
+        const menteeList = document.getElementById("menteeList");
+
+        // Show the mentee list
+        menteeList.style.display = "block";
+
+        // Get the list element
+        const menteeListItems = document.getElementById("menteeListItems");
+
+        // Clear any existing list items
+        menteeListItems.innerHTML = "";
+
+        // Add an empty list item (you can populate this dynamically later)
+        const listItem = document.createElement("li");
+        listItem.textContent = "No mentees to display";
+        menteeListItems.appendChild(listItem);
+    });
+
+    // Show the R&D section when the button is clicked
+    document.getElementById("goToRDSectionBtn").addEventListener("click", function () {
+        // Get the R&D section container
+        const rdSection = document.getElementById("rdSection");
+
+        // Show the R&D section
+        rdSection.style.display = "block";
+    });
+
+    // Handle the "Upload Course" button click
+    document.getElementById("uploadCourseBtn").addEventListener("click", function () {
+        // Trigger the file input dialog
+        const fileInput = document.getElementById("fileInput");
+        fileInput.click();
+
+        // Listen for changes in the file input and handle the selected files
+        fileInput.addEventListener("change", function () {
+            const selectedFiles = fileInput.files; // Get the selected files
+
+            if (selectedFiles.length > 0) {
+                // You can now process the selected files, for example, upload them to your server
+                // Here, we're just displaying a message with the file names
+                let fileNames = "";
+                for (let i = 0; i < selectedFiles.length; i++) {
+                    fileNames += selectedFiles[i].name + ", ";
+                }
+                fileNames = fileNames.slice(0, -2); // Remove the trailing comma and space
+                alert(`You selected the files: ${fileNames}`);
+            } else {
+                alert("No files selected");
+            }
+        });
+    });
+
+    // Handle the "Invite a Mentee for R&D" button click (Add your logic here)
+    document.getElementById("inviteMenteeForRDBtn").addEventListener("click", function () {
+        // Add your code to invite a mentee for R&D
+    });
+</script>
+</body>
+</html>
