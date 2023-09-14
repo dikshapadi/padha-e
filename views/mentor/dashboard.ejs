@@ -1,240 +1,485 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Mentor Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <style>
-        /* Your CSS styles here */
-        .container {
-            max-width: 800px; /* Adjust the value as needed */
-            margin: 0 auto; /* Center the container horizontally */
-            padding: 20px; /* Add some padding for spacing */
-        }
-
-        /* Center-align text and image */
-        body {
-            background-color: #f0f0f0; /* Off-white background color */
-            text-align: center;
-            position: relative;
-        }
-
-        .center-text {
-            text-align: center;
-        }
-
-        .stages p {
-            text-align: left;
-            overflow: hidden;
-            margin-left: 50px;
-        }
-
-        .stages span.yellow {
-            color: orangered;
-        }
-
-        .stages span.orange {
-            color: orangered;
-        }
-
-        .stages span.orange-red {
-            color: orangered;
-        }
-
-        .stages span.red {
-            color: orangered;
-        }
-
-        .stages {
-            max-width: 100%; /* Adjust as needed */
-        }
-
-        .text {
-            font-weight: normal; /* Make it normal (not bold) */
-            color: #575454; /* Set the color to a light gray or your preferred light color */
-        }
-
-        /* Style for the "mentor" text */
-        .text-bold-dark {
-            font-weight: bold; /* Make it bold */
-            color: #000; /* Set the color to dark (black) */
-        }
-
-        /* Style for the whole header if needed */
-       
-
-        img {
-            display: block;
-            margin: 0 auto; /* Center horizontally */
-        }
-
-        /* Style the buttons */
-        button {
-            padding: 15px 30px; /* Increase button size */
-            margin: 65px 65px 65px 65px; /* Add space between buttons */
-            font-size: 18px; /* Increase font size */
-            background-color: #000080; /* Dark blue background color */
-            color: #fff; /* White text color */
-            border: none; /* Remove button border */
-        }
-
-        #menteeList {
-            text-align: center; /* Center-align "Mentee List" */
-        }
-
-        /* Style for the "No mentees to display" text */
-        #menteeListItems {
-            text-align: center; /* Center-align the text */
-            font-size: 24px; /* Increase font size */
-            color: red; /* Make the text red */
-        }
-
-        /* Style for the Google Translate element */
-        #google_translate_element {
-            position: absolute;
-            top: 20px; /* Adjust the top position to your preference */
-            right: 20px; /* Adjust the right position to your preference */
-        }
-    </style>
-</head>
-<body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-<div id="google_translate_element"></div>
-<br><br>
-<h1 class="welcome-text">
-    <span class="text">Welcome back</span> <span class="text-bold-dark">mentor</span>!
-</h1>
-
-<br><br>
-<!-- Add your image source and alt text as needed -->
-<img src="mentor_main.jpg" alt="Mentor Image" width="80%">
-<!-- Buttons with increased size and spacing -->
-<button id="showMenteeListBtn">Show Mentee List</button>
-<button id="uploadCourseBtn">Upload Course</button>
-<button id="goToRDSectionBtn">Go to R&D Section</button>
-<button id="inviteMenteeForRDBtn">Invite a Mentee for R&D</button>
-
-<!-- Empty mentee list initially hidden -->
-<div id="menteeList" style="display: none;">
-    <h2>Mentee List</h2>
-    <ul id="menteeListItems">
-        <!-- Empty list to be populated dynamically -->
-    </ul>
-</div>
-
-<!-- R&D Section content initially hidden -->
-<div id="rdSection" style="display: none;">
-    <h2>R&D Section</h2>
-    <!-- Add your R&D section content here -->
-</div>
-
-<!-- Input element for file upload (hidden by default) -->
-<input type="file" id="fileInput" style="display: none;" multiple>
-
-<br><br><br><br>
-<!-- Your provided text with blue-colored and bold headings -->
-
-<div class="row">
-    <div class="row center-text"> <!-- Center the text within the row -->
-        <div class="col-sm-12">
-            <h3 style="color: darkblue;">FRAMEWORK OF MENTORSHIP - 4 STAGES AND UNDERLYING SKILLS</h3>
-            <br>
-            <p><b>Mentoring centers on the creation of a safe and healthy relationship between a mentor and mentee.&nbsp;Our mentoring framework identifies 4 critical stages every mentor and mentee goes through:</b></p>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My Dashboard</title>
+   <!-- plugins:css -->
+   <link rel="stylesheet" href="/vendors/feather/feather.css">
+   <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
+   <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+   <link rel="stylesheet" href="/vendors/typicons/typicons.css">
+   <link rel="stylesheet" href="/vendors/simple-line-icons/css/simple-line-icons.css">
+   <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+   <script src="https://kit.fontawesome.com/7aa1c87325.js" crossorigin="anonymous"></script>
+   <!-- endinject -->
+   <!-- Plugin css for this page -->
+   <link rel="stylesheet" href="/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+   <link rel="stylesheet" href="/js/select.dataTables.min.css">
+   <!-- End plugin css for this page -->
+   <!-- inject:css -->
+   <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+   <!-- endinject -->
+   <link rel="shortcut icon" href="/images/favicon.png" />
+ 
+   <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore-compat.js"></script>
+     <script type="module" src="/config/firebase.js"></script>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+          <div class="me-3">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+              <span class="icon-menu"></span>
+            </button>
+          </div>
+          <div>
+            <a class="navbar-brand brand-logo" href="index.html">
+              <h3 class="text-black fw-bold">Padha-<span class="text-black fw-bold" style="color: blue;">e</span></h1>
+  
+            </a>
+            <a class="navbar-brand brand-logo-mini" href="index.html">
+              <img src="/images/logo-mini.svg" alt="logo" />
+            </a>
+          </div>
         </div>
-        <br><br><br><br><br>
+        <div class="navbar-menu-wrapper d-flex align-items-top">
+          <ul class="navbar-nav">
+            <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+              <h1 class="welcome-text">
+                Welcome back  <span class="text-black fw-bold">Mentor!</span>
+              </h1>
+              <h3 class="welcome-sub-text">
+                
+              </h3>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown d-none d-lg-block">
+                <div id="google_translate_element"></div>
+
+                <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                
+                <script>
+                  function googleTranslateElementInit() {
+                    new google.translate.TranslateElement(
+                      { pageLanguage: "en" },
+                      "google_translate_element"
+                    );
+                  }
+                </script>
+                
+            </li>
+            <li class="nav-item d-none d-lg-block">
+              <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+                <span class="input-group-addon input-group-prepend border-right">
+                  <span class="icon-calendar input-group-text calendar-icon"></span>
+                </span>
+                <input type="text" class="form-control">
+              </div>
+            </li>
+
+            <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+              <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="img-xs rounded-circle" src="/images/mentee_icon (2).png" alt="Profile image"> </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                <div class="dropdown-header text-center">
+      
+                </div>
+                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
+                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+              </div>
+            </li>
+          </ul>
+          <button
+            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+            type="button"
+            data-bs-toggle="offcanvas"
+          >
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_settings-panel.html -->
+        <div class="theme-setting-wrapper">
+          <div id="settings-trigger"><i class="ti-settings"></i></div>
+          <div id="theme-settings" class="settings-panel">
+            <i class="settings-close ti-close"></i>
+            <p class="settings-heading">SIDEBAR SKINS</p>
+            <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+              <div class="img-ss rounded-circle bg-light border me-3"></div>
+              Light
+            </div>
+            <div class="sidebar-bg-options" id="sidebar-dark-theme">
+              <div class="img-ss rounded-circle bg-dark border me-3"></div>
+              Dark
+            </div>
+            <p class="settings-heading mt-2">HEADER SKINS</p>
+            <div class="color-tiles mx-0 px-4">
+              <div class="tiles success"></div>
+              <div class="tiles warning"></div>
+              <div class="tiles danger"></div>
+              <div class="tiles info"></div>
+              <div class="tiles dark"></div>
+              <div class="tiles default"></div>
+            </div>
+          </div>
+        </div>
+        <!-- partial -->
+        <!-- partial:partials/_sidebar.html -->
+        
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="max-width: 350px;">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/mentor/dashboard">
+                <i class="mdi mdi-grid-large menu-icon"></i>
+                <span class="menu-title" style="font-size: 16px;">Dashboard</span>
+              </a>
+            </li>
+  
+            <li class="nav-item nav-category">e-Learn</li>
+              <li class="nav-item" style="font-size: 18px;">
+                <a class="nav-link" href="/mentor/studymaterials">
+                  <i class="menu-icon mdi mdi-book-open-page-variant"></i>
+                  <span class="menu-title" style="font-size: 16px;">Upload Study Materials</span>
+                  
+                </a>
+              </li>
+              <li class="nav-item" style="font-size: 16px;">
+                <a class="nav-link" href="/mentor/quiz">
+                  <i class="menu-icon mdi mdi-comment-question-outline"></i>
+                  <span class="menu-title" style="font-size: 16px;">Create Quizz</span>
+                  
+                </a>
+              </li>
+              <li class="nav-item" style="font-size: 16px;">
+                <a class="nav-link" href="/mentor/list">
+                  <i class="menu-icon mdi mdi-book-multiple"></i>
+                  <span class="menu-title" style="font-size: 16px;">Mentee List</span>
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/mentor/randd">
+                  <i class="menu-icon mdi mdi-book-open"></i>
+                  <span class="menu-title" style="font-size: 16px;">R&D Section</span>
+                  
+                </a>
+              </li>
+  
+  
+            <li class="nav-item nav-category">OTHERS</li>
+            <li class="nav-item">
+              <a class="nav-link" href="/secondary/finaid">
+                <i class="menu-icon mdi mdi-coin"></i>
+                <span class="menu-title" style="font-size: 16px;">Subject</span>
+               
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/secondary/mentor">
+                <i class="menu-icon mdi mdi-account-multiple"></i>
+                <span class="menu-title" style="font-size: 16px;"></span>
+                <i class="menu-arrow"></i> 
+              </a>
+            </li>
+          
+  
+            
+          </ul>
+        </nav>
+        
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="home-tab">
+                  <div
+                    class="d-sm-flex align-items-center justify-content-between border-bottom"
+                  >
+                    <div class="row flex-grow">
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card card-rounded table-darkBGImg">
+                          <div class="card-body">
+                            <div class="col-sm-8">
+                              <h3 class="text-white upgrade-info mb-0">
+                                Help create a difference with
+                                <span class="fw-bold"> Padha-e</span>
+                              </h3>
+                              <a href="#" class="btn btn-info upgrade-btn"
+                                >Upload Course</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-content tab-content-basic">
+                    <div
+                      class="tab-pane fade show active"
+                      id="overview"
+                      role="tabpanel"
+                      aria-labelledby="overview"
+                    >
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div
+                            class="statistics-details d-flex align-items-center justify-content-between"
+                          >
+ 
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-lg-8 d-flex flex-column">
+                          <div class="row flex-grow">
+                            <div
+                              class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card"
+                            >
+                            <div class="card card-rounded">
+                              <div class="card-body">
+                                <div class="d-sm-flex justify-content-between align-items-start">
+                                  <div>
+                                   <h4 class="card-title card-title-dash">Check mentee Skill Progress</h4>
+                                   <h5 class="card-subtitle card-subtitle-dash"></h5>
+                                  </div>
+                                  <div id="performance-line-legend"></div>
+                                </div>
+                                <div class="chartjs-wrapper mt-5">
+                                  <canvas id="performaneLine"></canvas>
+                                </div>
+                              </div>
+                            </div> 
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="col-lg-4 d-flex flex-column">
+                          <div class="row flex-grow">
+                            <div class="col-12 grid-margin stretch-card">
+                              <div class="card card-rounded">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <h4 class="card-title card-title-dash">Todo list</h4>
+                                        <div class="add-items d-flex mb-0">
+                                          <input id="taskInput" type="text" class="form-control todo-list-input" placeholder="Enter your tasks">
+                                          <button id="addTaskBtn" class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
+                                        </div>
+                                      </div>
+                                      <div class="list-wrapper">
+                                        <ul id="taskList" class="todo-list todo-list-rounded">
+                                          <!-- Tasks will be added dynamically here -->
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+
+                      <div class="row">
+                        
+                        <div class="col-lg-8 d-flex flex-column">
+
+                          <div class="row flex-grow">
+                            <div class="col-12 grid-margin stretch-card">
+                              <div class="card card-rounded">
+                                <div class="card-body">
+                                  <div class="d-sm-flex justify-content-between align-items-start">
+                                    <div>
+                                      <h4 class="card-title card-title-dash">Daily Time Table</h4>
+                                    </div>
+                                    <div>
+                                      <button class="btn btn-primary btn-lg text-white mb-0 me-0" type="button" onclick="addTask()">
+                                        <i class="mdi mdi-account-plus"></i> Add new task
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="table-responsive mt-1">
+                                    <table class="table select-table">
+                                      <thead>
+                                        <tr>
+                                          <th>
+                                            <div class="form-check form-check-flat mt-0">
+                                              <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" aria-checked="false" /><i class="input-helper"></i>
+                                              </label>
+                                            </div>
+                                          </th>
+                                          <th>Task</th>
+                                          <th>Time</th>
+                                          <th>Priority</th>
+                                          <th>Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody id="taskList">
+                                        <!-- Tasks will be added dynamically here -->
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="row flex-grow">
+                            <div class="col-12 grid-margin stretch-card">
+                              <div class="card card-rounded">
+                                <div class="card-body">
+                                  <div class="d-sm-flex justify-content-between align-items-start">
+                                    <div>
+                                      <h4 class="card-title card-title-dash">Schedule a Meet</h4>
+                                     <p class="card-subtitle card-subtitle-dash"></p>
+                                    </div>
+                                    <div>
+                                      <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: blue; color: white; width: 200px;text-align: center;"> Check Schedule </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                            <a class="dropdown-item" href="#">Start new Session</a>
+                                            <a class="dropdown-item" href="#">Previous Sessions</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="d-sm-flex align-items-center mt-1 justify-content-between">
+                                    <div class="me-3"><div id="marketing-overview-legend"></div></div>
+                                  </div>
+                                 <div>
+                                  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                      <div class="carousel-item active">
+                                        <img src="/images/1.png" class="d-block w-100" alt="..."style="padding: 5px;">
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img src="/images/2.png" class="d-block w-100" alt="..." style="padding: 5px;">
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img src="/images/3.png" class="d-block w-100" alt="..." style="padding: 5px;">
+                                      </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                    </button>
+                                  </div>
+  
+                                 </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>                      
+                        <div class="col-lg-4 d-flex flex-column">
+                          <div class="row flex-grow">
+                            <div class="col-12 grid-margin stretch-card">
+                              <div class="card card-rounded">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <div
+                                        class="d-flex justify-content-between align-items-center mb-3"
+                                      >
+                                        <div>
+                                          <h4
+                                            class="card-title card-title-dash"
+                                          >
+                                            Mentee List
+                                          </h4>
+                                        </div>
+                                      </div>
+                                      <div class="mt-3">
+                                        Mentee list to be added
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div
+              class="d-sm-flex justify-content-center justify-content-sm-between"
+            >
+              <span
+                class="text-muted text-center text-sm-left d-block d-sm-inline-block"
+                >Premium
+                <a href="https://www.bootstrapdash.com/" target="_blank"
+                  >Bootstrap admin template</a
+                >
+                from BootstrapDash.</span
+              >
+              <span
+                class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"
+                >Copyright © 2021. All rights reserved.</span
+              >
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="stages">
-                <p><span class="yellow">CONNECT: </span>Our first relationship stage helps mentor and the mentee establish trust, consistency and reliability in the relationship.By the end of this stage, mentors and mentees feel comfortable around each other.</p>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="stages">
-                <p><span class="orange">EMPOWER: </span>In this stage, mentees work on those facets of their lives that they would like to empower through the mentoring. Mentors and mentees practice different life skills that can help them achieve their goals.</p>
-            </div>
-        </div>
-        <br><br><br><br>
-        <div class="col-sm-6">
-            <div class="stages">
-                <p><span class="orange-red">LEVEL: </span>In the second stage, we remove implicit and explicit power differences between our mentors and mentees. We establish a mutual or two-way relationship, where mentor and mentee both contribute to the relationship and learn from it.</p>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="stages">
-                <p><span class="red">EVOLVE: </span>In this final stage, mentees work on their future life choices. Mentors help mentees in their decision-making. Mentors and mentees also reflect on their mentorship and decide the next stage of their own journey.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!-- JavaScript to handle button clicks -->
-<script>
-    function googleTranslateElementInit(){
-        new google.translate.TranslateElement(
-            {pageLanguage:'en'},
-            'google_translate_element'
-        );
-    }
-
-    // Show the mentee list when the button is clicked
-    document.getElementById("showMenteeListBtn").addEventListener("click", function () {
-        // Get the mentee list container
-        const menteeList = document.getElementById("menteeList");
-
-        // Show the mentee list
-        menteeList.style.display = "block";
-
-        // Get the list element
-        const menteeListItems = document.getElementById("menteeListItems");
-
-        // Clear any existing list items
-        menteeListItems.innerHTML = "";
-
-        // Add an empty list item (you can populate this dynamically later)
-        const listItem = document.createElement("li");
-        listItem.textContent = "No mentees to display";
-        menteeListItems.appendChild(listItem);
-    });
-
-    // Show the R&D section when the button is clicked
-    document.getElementById("goToRDSectionBtn").addEventListener("click", function () {
-        // Get the R&D section container
-        const rdSection = document.getElementById("rdSection");
-
-        // Show the R&D section
-        rdSection.style.display = "block";
-    });
-
-    // Handle the "Upload Course" button click
-    document.getElementById("uploadCourseBtn").addEventListener("click", function () {
-        // Trigger the file input dialog
-        const fileInput = document.getElementById("fileInput");
-        fileInput.click();
-
-        // Listen for changes in the file input and handle the selected files
-        fileInput.addEventListener("change", function () {
-            const selectedFiles = fileInput.files; // Get the selected files
-
-            if (selectedFiles.length > 0) {
-                // You can now process the selected files, for example, upload them to your server
-                // Here, we're just displaying a message with the file names
-                let fileNames = "";
-                for (let i = 0; i < selectedFiles.length; i++) {
-                    fileNames += selectedFiles[i].name + ", ";
-                }
-                fileNames = fileNames.slice(0, -2); // Remove the trailing comma and space
-                alert(`You selected the files: ${fileNames}`);
-            } else {
-                alert("No files selected");
-            }
-        });
-    });
-
-    // Handle the "Invite a Mentee for R&D" button click (Add your logic here)
-    document.getElementById("inviteMenteeForRDBtn").addEventListener("click", function () {
-        // Add your code to invite a mentee for R&D
-    });
-</script>
-</body>
-</html>
+    <!-- container-scroller -->
+    
+   <!-- plugins:js -->
+   <script src="/vendors/js/vendor.bundle.base.js"></script>
+   <!-- endinject -->
+   <!-- Plugin js for this page -->
+   <script src="/vendors/chart.js/Chart.min.js"></script>
+   <script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+   <script src="/vendors/progressbar.js/progressbar.min.js"></script>
+ 
+   <!-- End plugin js for this page -->
+   <!-- inject:js -->
+   <script src="/js/off-canvas.js"></script>
+   <script src="/js/hoverable-collapse.js"></script>
+   <script src="/js/template.js"></script>
+   <script src="/js/settings.js"></script>
+   <script src="/js/todolist.js"></script>
+   <!-- endinject -->
+   <!-- Custom js for this page-->
+   <script src="/js/dashboard.js"></script>
+   <script src="/js/Chart.roundedBarCharts.js"></script>
+   <!-- End custom js for this page-->
+   <script type="module"  src="/js/Atodolist.js"></script>
+   
+ 
+ </body>
+ 
+ </html>
+ 
+ 
