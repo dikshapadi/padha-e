@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="/js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="/css/vertical-layout-light/styles.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="/images/favicon.png" />
   <style>
@@ -53,7 +53,11 @@
     width: 100%;
     border-radius: 10px; /* Preserve curved radius borders */
 }
-
+#google_translate_element {
+        position: absolute;
+        top: 20px; /* Adjust the top position to your preference */
+        right: 260px; /* Adjust the right position to your preference */
+    }
 
     
 
@@ -83,29 +87,12 @@
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Welcome back <span class="text-black fw-bold">mentee!</span></h1>
-            
+            <div id="google_translate_element"></div>
+
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown d-none d-lg-block">
-            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select language </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-              <a class="dropdown-item py-3" >
-                <p class="mb-0 font-weight-medium float-left">Select language</p>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">English</p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-item-content flex-grow py-2">
-                  <p class="preview-subject ellipsis font-weight-medium text-dark">Malyalam</p>
-                </div>
-              </a>
-            </div>
-          </li>
+          
           
           <li class="nav-item d-none d-lg-block">
             <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
@@ -154,13 +141,11 @@
           </div>
         </div>
       </div>
-      
-      <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar" style="max-width: 350px;">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/secondary/dashboard">
+            <a class="nav-link" href="/college/dashboard">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title" style="font-size: 16px;">Dashboard</span>
             </a>
@@ -168,30 +153,29 @@
 
           <li class="nav-item nav-category">e-Learn</li>
             <li class="nav-item" style="font-size: 18px;">
-              <a class="nav-link" href="/secondary/studymaterials">
+              <a class="nav-link" href="/college/study">
                 <i class="menu-icon mdi mdi-book-open-page-variant"></i>
                 <span class="menu-title" style="font-size: 16px;">Study Materials</span>
                 
               </a>
             </li>
             <li class="nav-item" style="font-size: 16px;">
-              <a class="nav-link" href="/secondary/quiz">
-                <i class="menu-icon mdi mdi-comment-question-outline"></i>
-                <span class="menu-title" style="font-size: 16px;">Quizz</span>
-                
-              </a>
-            </li>
-            <li class="nav-item" style="font-size: 16px;">
-              <a class="nav-link" href="/secondary/qb">
-                <i class="menu-icon mdi mdi-book-multiple"></i>
-                <span class="menu-title" style="font-size: 16px;">Question Bank</span>
-                
+              <a class="nav-link" href="">
+                <i class="menu-icon mdi mdi-content-paste"></i>
+                <span class="menu-title" style="font-size: 16px;">Quizzes</span>
+            
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/secondary/donationsite">
-                <i class="menu-icon mdi mdi-book-open"></i>
+              <a class="nav-link" href="">
+                <i class="menu-icon mdi mdi-content-paste"></i>
                 <span class="menu-title" style="font-size: 16px;">Physical materials</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/college/coding">
+                <i class="menu-icon mdi mdi-laptop-mac"></i>
+                <span class="menu-title" style="font-size: 16px;">Coding platforms</span>
                 
               </a>
             </li>
@@ -199,19 +183,14 @@
 
           <li class="nav-item nav-category">OTHERS</li>
           <li class="nav-item">
-            <a class="nav-link" href="/secondary/finaid">
+            <a class="nav-link">
               <i class="menu-icon mdi mdi-coin"></i>
               <span class="menu-title" style="font-size: 16px;">Apply financial aid</span>
-             
+              
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/secondary/mentor">
-              <i class="menu-icon mdi mdi-account-multiple"></i>
-              <span class="menu-title" style="font-size: 16px;">Get mentorship</span>
-              <i class="menu-arrow"></i> 
-            </a>
-          </li>
+          
+
         
 
           
@@ -252,7 +231,7 @@
                                       <div class="card card-spacing">
                                         <div class="card card-fixed-height">
                                           <div class="card-body-custom">
-                                        <img src="/images/ds_pic.png" class="card-img-top" alt="Image 1">
+                                        <img src="/images/math.png" class="card-img-top" alt="Image 1" style="width: 370px;height: 200px;">
                                       </div>
                                     </div>
                                       </div>
@@ -265,7 +244,7 @@
                                       <div class="card card-spacing">
                                         <div class="card card-fixed-height">
                                           <div class="card-body-custom">
-                                        <img src="/images/dbms_pic.png" class="card-img-top" alt="Image 2">
+                                        <img src="/images/english.jpg" class="card-img-top" alt="Image 2" style="width: 370px;height: 200px;">
                                       </div>
                                     </div>
                                       </div>
@@ -280,7 +259,8 @@
                                       <div class="card card-spacing">
                                         <div class="card card-fixed-height">
                                           <div class="card-body-custom">
-                                        <img src="/images/oops_pic.jpeg" class="card-img-top" alt="Image 3">  </div>
+                                        <img src="/images/biology.jpg" class="card-img-top" alt="Image 3" style="width: 370px;height: 200px;">  
+                                      </div>
                                       </div>
                                       </div>
                                     </a>
@@ -292,7 +272,8 @@
                                       <div class="card card-spacing">
                                         <div class="card card-fixed-height">
                                           <div class="card-body-custom">
-                                        <img src="/images/os_pic.jpeg" class="card-img-top" alt="Image 4">  </div>
+                                        <img src="/images/chemistry.jpg" class="card-img-top" alt="Image 4" style="width: 370px;height: 200px;">  
+                                      </div>
                                       </div>
                                       </div>
                                     </a>
@@ -306,7 +287,7 @@
                                       <div class="card card-spacing">
                                         <div class="card card-fixed-height">
                                           <div class="card-body-custom">
-                                        <img src="/images/webd_pic.jpeg" class="card-img-top" alt="Image 5">
+                                        <img src="/images/physics.jpeg" class="card-img-top" alt="Image 5" style="width: 370px;height: 200px;">
                                       </div>
                                     </div>
                                       </div>
@@ -319,13 +300,37 @@
                                       <div class="card card-spacing">
                                         <div class="card card-fixed-height">
                                           <div class="card-body-custom">
-                                        <img src="/images/cn_pic.jpeg" class="card-img-top" alt="Image 6">
+                                        <img src="/images/history.jpg" class="card-img-top" alt="Image 6" style="width: 370px;height: 200px;">
                                       </div>
                                     </div>
                                       </div>
                                     </a>
                                   </div>
-                                </div>
+
+                                  <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                      <a href="link5.html">
+                                        <div class="card card-spacing">
+                                          <div class="card card-fixed-height">
+                                            <div class="card-body-custom">
+                                          <img src="/images/gk.png" class="card-img-top" alt="Image 5" style="width: 370px;height: 200px;">
+                                        </div>
+                                      </div>
+                                        </div>
+                                      </a>
+                                    </div>
+  
+                                    <div class="col-md-6 mb-4">
+                                      <a href="link7.html">
+                                        <div class="card card-spacing">
+                                          <div class="card card-fixed-height">
+                                            <div class="card-body-custom">
+                                          <img src="/images/civics.jpg" class="card-img-top" alt="Image 6" style="width: 370px;height: 200px;">
+                                        </div>
+                                      </div>
+                                  </div>
+  
+                                  </div>
                               </div>
                             </div>
                           </div>
@@ -361,6 +366,20 @@
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'ml'
+            },
+            'google_translate_element'
+        );
+    }
+    </script>
+
 </body>
 
 </html>
