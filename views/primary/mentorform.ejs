@@ -55,13 +55,11 @@
     width: 100%;
     border-radius: 10px; /* Preserve curved radius borders */
 }
-
 #google_translate_element {
             position: absolute;
             top: 20px; /* Adjust the top position to your preference */
             right: 260px; /* Adjust the right position to your preference */
         }
-    
 
   </style>
 </head>
@@ -92,9 +90,9 @@
             <div id="google_translate_element"></div>
           </li>
         </ul>
-        
         <ul class="navbar-nav ms-auto">
-          
+        
+        
           <li class="nav-item d-none d-lg-block">
             <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
               <span class="input-group-addon input-group-prepend border-right">
@@ -107,6 +105,7 @@
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-user-graduate" style="font-size: 40px;"></i>
+
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
     
@@ -237,7 +236,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar" style="max-width: 350px;">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/college/dashboard">
+            <a class="nav-link" href="/primary/dashboard">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title" style="font-size: 16px;">Dashboard</span>
             </a>
@@ -245,14 +244,14 @@
 
           <li class="nav-item nav-category">e-Learn</li>
             <li class="nav-item" style="font-size: 18px;">
-              <a class="nav-link" href="/college/study">
+              <a class="nav-link" href="/primary/study">
                 <i class="menu-icon mdi mdi-book-open-page-variant"></i>
                 <span class="menu-title" style="font-size: 16px;">Study Materials</span>
                 
               </a>
             </li>
             <li class="nav-item" style="font-size: 16px;">
-              <a class="nav-link" href="">
+              <a class="nav-link" href="/primary/quiz">
                 <i class="menu-icon mdi mdi-content-paste"></i>
                 <span class="menu-title" style="font-size: 16px;">Quizzes</span>
             
@@ -265,14 +264,6 @@
                 
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/college/coding">
-                <i class="menu-icon mdi mdi-laptop-mac"></i>
-                <span class="menu-title" style="font-size: 16px;">Coding platforms</span>
-                
-              </a>
-            </li>
-
 
           <li class="nav-item nav-category">OTHERS</li>
           <li class="nav-item">
@@ -282,62 +273,60 @@
               
             </a>
           </li>
+          
         </ul>
       </nav>
       <!-- partial -->
-    <div class="main-panel">
+      <div class="main-panel">
         <div class="content-wrapper">
-            <div class="col-md-6 grid-margin stretch-card">
+            <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">My profile</h4>
-                    
-                    <form class="forms-sample" id="profileForm">
+                    <h4 class="card-title">Empowerment Starts Here: Ready to Transform, Ready to Thrive!</h4>
+                    <p class="card-description">
+                        Subscribe to a mentorship program and get access to live lectures and
+                        1-1 guidance.                 
+                    </p>
+
+                    <form class="forms-sample" id="mentorform">
                       <div class="form-group">
-                        <label for="name">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Username">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" id="menteeName" placeholder="Name">
                       </div>
                       <div class="form-group">
-                        <label for="age">Age</label>
-                        <input type="text" class="form-control" id="age" placeholder="Age">
-                      </div>
-                      <div class="form-group">
-                        <label for="phoneno">Phone number</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Phone Number">
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email address</label>
+                        <label for="exampleInputEmail3">Email address</label>
+                        <p class="card-description">
+                            The email you used to register into padha-e ONLY.                 
+                        </p>
                         <input type="email" class="form-control" id="email" placeholder="Email">
                       </div>
                       <div class="form-group">
-                        <label for="SelectGender">Gender</label>
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Gender</label>
                           <select class="form-control" id="gender">
                             <option>Male</option>
                             <option>Female</option>
                           </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="class">Class</label>
-                        <input type="text" class="form-control" id="class" placeholder="Class">
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Address</label>
-                        <div class="col-sm-9">
-                            <br>
-                          <input type="text" class="form-control" id="address">
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="state">State</label>
-                        <input type="text" class="form-control" id="state" placeholder="State">
-                      </div>
+                        <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MbwKaNWB072tO9" async> </script>
+                        <div class="form-group">
+
+                            <label for="payemnt">Pay INR 500 to proceed</label>
+                              
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Apply</button>
+                      <button class="btn btn-light">Cancel</button>
                     </form>
                   </div>
                 </div>
               </div>
-        </div>
-    </div>
                     
+
+
+
       </div>
       <!-- main-panel ends -->
     </div>
@@ -366,7 +355,6 @@
   <script src="/js/Chart.roundedBarCharts.js"></script>
 
   <script type="module" src="/js/mentorform.js"></script>
-
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   
   <script>
@@ -380,7 +368,6 @@
         );
     }
     </script>
-
 </body>
 
 </html>

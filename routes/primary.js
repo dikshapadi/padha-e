@@ -6,6 +6,14 @@ router.get('/primary/dashboard',(req,res) =>{
     res.render("primary/dashboard");
 });
 
+router.get('/primary/profile',(req,res) =>{
+  res.render("primary/profile");
+});
+
+router.get("/primary/mentorform", (req, res) => {
+  res.render("primary/mentorform");
+});
+
 router.get("/primary/quiz", (req, res) => {
     res.render("Quiz/quiz");
   });
