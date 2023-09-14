@@ -363,7 +363,7 @@
 
       if (!user) {
         // Redirect to the login page if not authenticated
-        window.location.href = '/login.html'; // Replace with your login page URL
+        window.location.href = '/home'; // Replace with your login page URL
         return;
       }
 
@@ -376,6 +376,7 @@
 
       // Update the page content with user-specific data
       document.getElementById('user-name').textContent = userData.name;
+      plotSubjectPieChart(authenticatedUserId);
 
     } catch (error) {
       console.error('Error:', error);
@@ -393,6 +394,66 @@
 }
 
   </script>
+    <script>
+      async function plotSubjectPieChart(userId) {
+    const userData = await getUserData(userId);
+    
+    if (!userData.quiz || Object.keys(userData.quiz).length === 0) {
+    const ctx = document.getElementById('subjectPieChart').getContext('2d');
+    ctx.font = "25px Arial";
+    ctx.fillText("No Quiz Data Available", 0, 50);// firiendly message if no quiz daa is available
+    return;
+  }
+    
+    const quizData = userData.quiz || {};
+    const subjectScores = {};
+  
+    for (const classId in quizData) {
+      for (const subject in quizData[classId]) {
+        if (!subjectScores[subject]) {
+          subjectScores[subject] = [];
+        }
+        subjectScores[subject].push(quizData[classId][subject]);
+      }
+    }
+    
+    const subjectNames = Object.keys(subjectScores);
+    const averagedScores = subjectNames.map((subject) => {
+      const scores = subjectScores[subject];
+      const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
+      return averageScore;
+    });
+  
+    const ctx = document.getElementById('subjectPieChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: subjectNames,
+        datasets: [{
+          data: averagedScores,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)'
+          ],
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              boxWidth: 50,
+              padding: 10,
+            },
+          },
+        },
+      },
+    });
+  }
+  
+    </script>
 
   <script src="/vendors/js/vendor.bundle.base.js"></script>
   <script src="/vendors/chart.js/Chart.min.js"></script>

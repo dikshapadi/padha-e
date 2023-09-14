@@ -22,4 +22,8 @@ router.get("/primary/quiz", (req, res) => {
     res.render("Quiz/quiz");
   });
 
+  router.get("/home", (req,res) => {
+    res.render("home/main");
+  });
+
 export default router;
