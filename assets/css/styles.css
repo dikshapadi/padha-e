@@ -25,7 +25,7 @@ h1 {
 
 #login-box {
     background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
-    border: 2px solid rgb(0, 0, 0); /* White border */
+    border: 5px solid rgb(0, 0, 0); /* White border */
     padding: 100px;
     border-radius: 10px;
     text-align: center;
