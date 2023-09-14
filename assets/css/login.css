@@ -31,18 +31,18 @@ body {
     width: 100%;
     max-width: 400px;
     text-align: left;
-    margin-top: 30px; /* Increase margin-top to create more space for the heading */
+    margin-top: 30px; 
 }
 
 #userDetailsForm h1 {
-    position: relative; /* Add relative positioning to the heading */
-    z-index: 1; /* Ensure the heading is above other elements */
+    position: relative; 
+    z-index: 1; 
 }
 
 #userDetailsForm label {
     width: 100%;
-    margin-bottom: 10px; /* Increase margin for spacing between labels */
-    display: inline-block; /* Display labels inline */
+    margin-bottom: 10px;
+    display: inline-block; 
 }
 
 #userDetailsForm input[type="text"],
@@ -57,7 +57,7 @@ body {
 }
 
 #userDetailsForm input[type="radio"] {
-    display: inline-block; /* Display radio buttons inline */
+    display: inline-block; 
     margin-right: 10px;
 }
 
