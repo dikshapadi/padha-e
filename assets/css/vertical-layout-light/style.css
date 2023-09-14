@@ -28422,6 +28422,7 @@ div.tagsinput span.tag a {
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
   background-color: white;
+  background-image: url(/images/clouds.jpg);
 }
 
 .sidebar .nav {
@@ -28430,6 +28431,7 @@ div.tagsinput span.tag a {
   flex-direction: column;
   margin-bottom: 60px;
   background-color: white;
+  background-image: url(/images/clouds.jpg);
 }
 
 .sidebar .nav .nav-item {
