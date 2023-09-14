@@ -13119,6 +13119,16 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   background-color: black;
 }
 
+.card-form{
+  background-color: white;
+  border:2px white;
+  border-radius: 10px;
+}
+
+.card-profile{
+  margin-left: 250px;
+}
+
 .card > hr {
   margin-right: 0;
   margin-left: 0;
