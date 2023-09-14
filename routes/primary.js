@@ -22,6 +22,10 @@ router.get("/primary/quiz", (req, res) => {
     res.render("Quiz/quiz");
   });
 
+  router.get('/primary/study',(req,res) =>{
+    res.render("primary/study");
+});
+
   router.get("/home", (req,res) => {
     res.render("home/main");
   });
