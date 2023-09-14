@@ -57,63 +57,6 @@
         }
       },
       {
-        "Data Structures ": {
-          "questions": [
-            {
-              "question": "What is the capital of France?",
-              "options": ["Berlin", "Madrid", "Paris", "Rome"],
-              "correct_answer": "Paris"
-            },
-            {
-              "question": "Which planet is known as the Red Planet?",
-              "options": ["Venus", "Mars", "Jupiter", "Saturn"],
-              "correct_answer": "Mars"
-            },
-            {
-              "question": "What is 2 + 2?",
-              "options": ["3", "4", "5", "6"],
-              "correct_answer": "4"
-            },
-            {
-              "question": "Which gas do plants absorb from the atmosphere?",
-              "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
-              "correct_answer": "Carbon dioxide"
-            },
-            {
-              "question": "Who wrote 'Romeo and Juliet'?",
-              "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-              "correct_answer": "William Shakespeare"
-            },
-            {
-              "question": "What is the largest mammal in the world?",
-              "options": ["Giraffe", "Elephant", "Blue whale", "Lion"],
-              "correct_answer": "Blue whale"
-            },
-            {
-              "question": "Which gas makes up the majority of Earth's atmosphere?",
-              "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
-              "correct_answer": "Nitrogen"
-            },
-            {
-              "question": "Who painted the Mona Lisa?",
-              "options": ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"],
-              "correct_answer": "Leonardo da Vinci"
-            },
-            {
-              "question": "What is the chemical symbol for gold?",
-              "options": ["Au", "Ag", "Fe", "Cu"],
-              "correct_answer": "Au"
-            },
-            {
-              "question": "Which planet is closest to the Sun?",
-              "options": ["Mars", "Earth", "Mercury", "Venus"],
-              "correct_answer": "Mercury"
-            }
-          ]
-        }
-      },
-
-      {
         "Math": {
           "questions": [
             {
