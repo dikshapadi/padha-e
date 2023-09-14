@@ -3,24 +3,36 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Quiz App</title>
+  <title>Take a Quiz!</title>
   <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      flex-direction: column;
-      /* Added for vertical alignment */
-    }
+  body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/images/quiz.png);
+  background-size: cover;
+  opacity: 1; /* Adjust the opacity as needed */
+  z-index: -1; /* Place the pseudo-element behind the content */
+}
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 1); /* Set background color without opacity */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  /* Added for vertical alignment */
+}
     .header {
       text-align: center;
       background-color: #007BFF;
@@ -36,27 +48,37 @@
       text-align: center;
     }
 
-    .quiz-list {
-      list-style: none;
-      padding: 0;
-    }
+  .quiz-list {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Display the list items in a horizontal row */
+  flex-wrap: wrap; 
+  justify-content: space-between;/* Allow items to wrap to the next line if needed */
+}
 
-    .quiz-list-item {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 20px;
-      width: 300px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      cursor: pointer;
-      margin: 10px;
-      transition: transform 0.2s;
-    }
+.quiz-list-item {
+  background-color: #fff;
+  border: 3px solid #000; /* Set a thick black border */
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  cursor: pointer;
+  margin: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.2s;
+  flex: 1; /* Distribute available space equally among items */
+}
 
-    .quiz-list-item:hover {
-      transform: scale(1.05);
-    }
+/* Remove bullets from list items */
+.quiz-list-item::before {
+  content: none;
+}
+
+.quiz-list-item:hover {
+  transform: scale(1.05);
+}
 
     .quiz-questions {
       display: none;
@@ -97,7 +119,7 @@
 </head>
 
 <body>
-  <h1>Quiz App</h1>
+  <h1>Take a Quiz!</h1>
   <ul class="quiz-list" id="quiz-list"></ul>
   <div class="quiz-questions" id="quiz-questions">
     <h2>Questions</h2>
