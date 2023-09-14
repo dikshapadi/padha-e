@@ -6,5 +6,12 @@ router.get('/primary/dashboard',(req,res) =>{
     res.render("primary/dashboard");
 });
 
+router.get("/primary/quiz", (req, res) => {
+    res.render("Quiz/quiz");
+  });
+  
+  router.get("/quiz", (req, res) => {
+    res.render("Quiz/quiz");
+  });
 
 export default router;

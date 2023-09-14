@@ -20,5 +20,12 @@ router.get('/college/mentorform',(req,res) =>{
 router.get('/college/profile',(req,res) =>{
     res.render("college/profile");
 });
+router.get("/college/quiz", (req, res) => {
+    res.render("Quiz/quiz");
+  });
+  
+  router.get("/quiz", (req, res) => {
+    res.render("Quiz/quiz");
+  });
 
 export default router;
