@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Authentication Example</title>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <!-- Add FirebaseUI CSS -->
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <h1>Welcome to My App</h1>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDxOvNrnzCQL0nMkVUPy8og_Feama6z-cc",
+            authDomain: "testing-e0b95.firebaseapp.com",
+            projectId: "testing-e0b95",
+            storageBucket: "testing-e0b95.appspot.com",
+            messagingSenderId: "156768591865",
+            appId: "1:156768591865:web:215906f334ba4c90e86728",
+            databaseURL: 'https://testing-e0b95-default-rtdb.asia-southeast1.firebasedatabase.app/',
+            measurementId: "G-3P5T6FGVFN"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = app.auth();
+        const database = app.database();
+
+        // FirebaseUI Configuration
+        var uiConfig = {
+
+            signInOptions: [
+                // Use GoogleAuthProvider for Google sign-in
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                // Use Email/Password authentication
+                {
+                    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                    requireDisplayName: false
+                },
+
+            ],
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    // Handle sign-in success here and return false to prevent automatic redirection
+                    var user = authResult.user;
+                    var userUid = user.uid;
+
+                    // Check if the user's data exists in the database
+                    database.ref('users/' + userUid).once('value')
+                        .then(function (snapshot) {
+                            if (snapshot.exists()) {
+                                var userData = snapshot.val();
+                                if (userData && userData.youAre) {
+                                    var youAre = userData.youAre;
+                                    if (youAre === 'mentor') {
+                                        // User is a mentor, redirect to mentor dashboard
+                                        window.location.href = 'mentor_dashboard.html';
+                                    } else if (youAre === 'student') {
+                                        var clas = userData.class;
+                                        if (clas == 'primary') {
+                                            window.location.href = 'primary_dashboard.html';
+                                        }
+                                        else if (clas == 'secondry') {
+                                            window.location.href = 'secondary_dashboard.html';
+                                        }
+                                        else {
+                                            window.location.href = 'college_dashboard.html';
+                                        }
+
+                                    }
+                                } else {
+                                    console.log("youAre key not found in user data, handle it accordingly");
+                                }
+
+                            } else {
+                                // User data does not exist, redirect to user_input.html
+                                window.location.href = 'user_input.html';
+                            }
+                        })
+                        .catch(function (error) {
+                            console.error("Error checking user data: ", error);
+                        });
+                    return false; // Prevent automatic redirection
+                }
+            }
+        };
+
+        // Initialize the FirebaseUI Widget
+        var ui = new firebaseui.auth.AuthUI(auth);
+        ui.disableAutoSignIn();
+        document.getElementById('loader').style.display = 'none';
+
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+</body>
+
+</html>

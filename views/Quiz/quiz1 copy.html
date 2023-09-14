@@ -111,37 +111,38 @@
 
   <script>
     const firebaseConfig = {
-      apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
-      authDomain: "sih-e-f67f9.firebaseapp.com",
-      databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
-      projectId: "sih-e-f67f9",
-      storageBucket: "sih-e-f67f9.appspot.com",
-      messagingSenderId: "113038032158",
-      appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
-      measurementId: "G-FWVHBTC79W"
+      apiKey: "AIzaSyDxOvNrnzCQL0nMkVUPy8og_Feama6z-cc",
+      authDomain: "testing-e0b95.firebaseapp.com",
+      projectId: "testing-e0b95",
+      storageBucket: "testing-e0b95.appspot.com",
+      messagingSenderId: "156768591865",
+      appId: "1:156768591865:web:215906f334ba4c90e86728",
+      databaseURL: 'https://testing-e0b95-default-rtdb.asia-southeast1.firebasedatabase.app/',
+      measurementId: "G-3P5T6FGVFN"
     };
 
     const app = firebase.initializeApp(firebaseConfig);
     const database = app.database();
     const auth = app.auth();
 
-    function getCookie(name) {
-      const cookieName = name + "=";
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i];
-        while (cookie.charAt(0) === ' ') {
-          cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(cookieName) === 0) {
-          return cookie.substring(cookieName.length, cookie.length);
-        }
-      }
-      return null; // Return null if the cookie is not found
-    }
+    // function getCookie(name) {
+    //   const cookieName = name + "=";
+    //   const cookies = document.cookie.split(';');
+    //   for (let i = 0; i < cookies.length; i++) {
+    //     let cookie = cookies[i];
+    //     while (cookie.charAt(0) === ' ') {
+    //       cookie = cookie.substring(1);
+    //     }
+    //     if (cookie.indexOf(cookieName) === 0) {
+    //       return cookie.substring(cookieName.length, cookie.length);
+    //     }
+    //   }
+    //   return null; // Return null if the cookie is not found
+    // }
 
     // Retrieve the 'userId' cookie
-    const userId = getCookie('userId');
+    // const userId = getCookie('userId');
+    const userId = "iK0lj3VzR3WgbZDJYzqZhh4Y8OJ2";
     console.log(userId);
 
 
