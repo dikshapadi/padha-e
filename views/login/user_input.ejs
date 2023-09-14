@@ -8,20 +8,21 @@
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
 
 </head>
 
 <body>
-    <h1>Provide Your Additional Details</h1>
+    <div id="form-box">
     <form id="userDetailsForm">
+        <h1>Provide Your Additional Details</h1>
         <label>Name: </label><input type="text" id="name" required><br>
-        <label>Age: </label><input type="number" id="age" required><br>
+       
         <label>Phone Number: </label><input type="tel" id="phoneNumber" required><br>
         <label>Gender: </label>
-        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Male" required> Male 
         <input type="radio" name="gender" value="Female" required> Female<br>
-
-        <label>Class: </label>
+        <label>Class: </label>  
         <select id="class" required>
             <option value="primary">Primary</option>
             <option value="secondary">Secondary</option>
@@ -45,6 +46,7 @@
 
         <input type="submit" value="Submit">
     </form>
+</div>
     <script>
          const firebaseConfig = {
             apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
