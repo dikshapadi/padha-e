@@ -12762,9 +12762,6 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   padding-bottom: 0.5rem;
 }
 
-.nav-bg{
-  background-image: url(/images/bg.png);  
-}
 
 .navbar > .container,
 .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
@@ -12789,7 +12786,6 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  background-image: url(/images/clouds.jpg);
 }
 
 .navbar-nav .nav-link {
@@ -15369,7 +15365,6 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 
 .d-none, .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right .nav-item.nav-settings {
   display: none !important;
-  background-image: url(/images/bg.png);  
 }
 
 .shadow {
@@ -28416,7 +28411,7 @@ div.tagsinput span.tag a {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  background-image: url(/images/bg.png);
+  background-color: white;
 }
 
 .sidebar .nav {
@@ -28424,7 +28419,7 @@ div.tagsinput span.tag a {
   flex-wrap: nowrap;
   flex-direction: column;
   margin-bottom: 60px;
-  background-image: url(/images/bg.png);
+  background-color: white;
 }
 
 .sidebar .nav .nav-item {
@@ -28434,6 +28429,7 @@ div.tagsinput span.tag a {
   transition-duration: 0.25s;
   transition-property: background;
   -webkit-transition-property: background;
+  color: white;
 }
 
 .sidebar .nav .nav-item .collapse {
@@ -28895,7 +28891,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper {
-  background: #F4F5F7;
+  background: #fff;
   transition: width 0.25s ease;
   -webkit-transition: width 0.25s ease;
   -moz-transition: width 0.25s ease;
