@@ -1,15 +1,34 @@
 /* Custom styles (modify as per your design) */
 body {
     font-family: Arial, sans-serif;
+    background-image: url(/img/login-bg.png);
     text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
 
 h1 {
     color: #333;
 }
 
 #firebaseui-auth-container {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
-/* You can add more custom styles as necessary */
+
+#login-box {
+    background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+    border: 2px solid rgb(0, 0, 0); /* White border */
+    padding: 100px;
+    border-radius: 10px;
+    text-align: center;
+    height: 300px;
+}
+

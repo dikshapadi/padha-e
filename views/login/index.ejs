@@ -11,13 +11,14 @@
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
     <!-- Add FirebaseUI CSS -->
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
-
     <link type="text/css" rel="stylesheet" href="/css/styles.css" />
 </head>
 
 <body>
-    <h1>Welcome to My App</h1>
-    <div id="firebaseui-auth-container"></div>
+    <div id="login-box"> 
+        <h1>Welcome to Padha-e!</h1>
+        <div id="firebaseui-auth-container"></div>
+    </div>
     <div id="loader">Loading...</div>
     <script>
         const firebaseConfig = {
@@ -30,9 +31,6 @@
             appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
             measurementId: "G-FWVHBTC79W"
         };
-
-        
-
 
         const app = firebase.initializeApp(firebaseConfig);
         const auth = app.auth();
