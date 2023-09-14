@@ -1,4 +1,5 @@
 .page-body-wrapper {
+ 
   min-height: calc(100vh - #{$navbar-height});
   @include display-flex();
   @include flex-direction(row);
@@ -26,6 +27,7 @@
 }
 
 .content-wrapper {
+  
   background: $content-bg;
   padding: 1.5rem 2.187rem 1.5rem 3.5rem;
   width: 100%;
