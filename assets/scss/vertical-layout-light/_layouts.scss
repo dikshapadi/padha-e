@@ -71,6 +71,7 @@
     }
 
     .main-panel {
+      
       width: calc(100% - #{$sidebar-width-mini});
     }
     &:not(.sidebar-icon-only) {
