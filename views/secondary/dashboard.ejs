@@ -61,42 +61,19 @@
           </ul>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown d-none d-lg-block">
-              <a
-                class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split"
-                id="messageDropdown"
-                href="#"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Select Language
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-                <a class="dropdown-item preview-item">
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis font-weight-medium text-dark">English</p>
-                    <p class="fw-light small-text mb-0">The contents of the page will be displayed in English.</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis font-weight-medium text-dark"> Hindi </p>
-                    <p class="fw-light small-text mb-0">The contents of the page will be displayed in Hindi.</p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis font-weight-medium text-dark">Kannada</p>
-                    <p class="fw-light small-text mb-0">The contents of the page will be displayed in Kannada.</p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis font-weight-medium text-dark">Malayalam</p>
-                    <p class="fw-light small-text mb-0">The contents of the page will be displayed in Malayalam.</p>
-                  </div>
-                </a>
-              </div>
+              <div id="google_translate_element"></div>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: "en" },
+      "google_translate_element"
+    );
+  }
+</script>
+
             </li>
             <li class="nav-item d-none d-lg-block">
               <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">

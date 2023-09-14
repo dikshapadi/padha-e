@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Page</title>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
+</head>
+
+<body>
+    <h1>Your Student secondary dashboard</h1>
+    <a href="../quiz1 copy.html">refer</a><br><br>
+    <div id="userData"></div>
+    <script>
+           const firebaseConfig = {
+            apiKey: "AIzaSyDxOvNrnzCQL0nMkVUPy8og_Feama6z-cc",
+            authDomain: "testing-e0b95.firebaseapp.com",
+            projectId: "testing-e0b95",
+            storageBucket: "testing-e0b95.appspot.com",
+            messagingSenderId: "156768591865",
+            appId: "1:156768591865:web:215906f334ba4c90e86728",
+            databaseURL: 'https://testing-e0b95-default-rtdb.asia-southeast1.firebasedatabase.app/',
+            measurementId: "G-3P5T6FGVFN"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = app.auth(); 
+        const database = app.database(); 
+
+        const userDataDiv = document.getElementById("userData");
+
+        // Check if a user is authenticated
+        const user = auth.currentUser;
+        auth.onAuthStateChanged((user) => {
+            
+        if (user) {
+            const userId = user.uid;
+                console.log(userId);
+                setCookie('userId', userId, 1);
+
+        
+            const userRef = database.ref('users/' + userId);
+
+            
+            userRef.on('value', (snapshot) => {
+              
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+
+                    // Display the user's data on the page
+                    userDataDiv.innerHTML = `
+                        <p>Name: ${userData.name}</p>
+                        <p>Age: ${userData.age}</p>
+                        <p>Phone Number: ${userData.phoneNumber}</p>
+                        <p>Gender: ${userData.gender}</p>
+                        <p>Class: ${userData.class}</p>
+                        <p>Grade: ${userData.grade}</p>
+                        <p>You are: ${userData.youAre}</p>
+                        <p>Address: ${userData.address}</p>
+                        <p>State: ${userData.state}</p>
+                    `;
+                } else {
+                    userDataDiv.innerHTML = "No data available for this user.";
+                }
+            });
+        } else {
+            // Handle the case when there is no authenticated user
+            userDataDiv.innerHTML = "No authenticated user. Please log in or register.";
+        }
+    });
+    function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+    </script>
+</body>
+
+</html>

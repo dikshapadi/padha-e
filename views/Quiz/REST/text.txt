@@ -1,0 +1,10 @@
+   const firebaseConfig = {
+            apiKey: "AIzaSyDxOvNrnzCQL0nMkVUPy8og_Feama6z-cc",
+            authDomain: "testing-e0b95.firebaseapp.com",
+            projectId: "testing-e0b95",
+            storageBucket: "testing-e0b95.appspot.com",
+            messagingSenderId: "156768591865",
+            appId: "1:156768591865:web:215906f334ba4c90e86728",
+            databaseURL: 'https://testing-e0b95-default-rtdb.asia-southeast1.firebasedatabase.app/',
+            measurementId: "G-3P5T6FGVFN"
+        };

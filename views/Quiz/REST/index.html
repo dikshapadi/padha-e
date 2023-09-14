@@ -11,25 +11,24 @@
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
     <!-- Add FirebaseUI CSS -->
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
-    <link type="text/css" rel="stylesheet" href="/css/styles.css" />
+
+    <link type="text/css" rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <div id="login-box"> 
-        <h1>Welcome to Padha-e!</h1>
-        <div id="firebaseui-auth-container"></div>
-    </div>
+    <h1>Welcome to My App</h1>
+    <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
-            authDomain: "sih-e-f67f9.firebaseapp.com",
-            databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
-            projectId: "sih-e-f67f9",
-            storageBucket: "sih-e-f67f9.appspot.com",
-            messagingSenderId: "113038032158",
-            appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
-            measurementId: "G-FWVHBTC79W"
+            apiKey: "AIzaSyDxOvNrnzCQL0nMkVUPy8og_Feama6z-cc",
+            authDomain: "testing-e0b95.firebaseapp.com",
+            projectId: "testing-e0b95",
+            storageBucket: "testing-e0b95.appspot.com",
+            messagingSenderId: "156768591865",
+            appId: "1:156768591865:web:215906f334ba4c90e86728",
+            databaseURL: 'https://testing-e0b95-default-rtdb.asia-southeast1.firebasedatabase.app/',
+            measurementId: "G-3P5T6FGVFN"
         };
 
         const app = firebase.initializeApp(firebaseConfig);
@@ -64,19 +63,17 @@
                                     var youAre = userData.youAre;
                                     if (youAre === 'mentor') {
                                         // User is a mentor, redirect to mentor dashboard
-                                        window.location.href = '/mentor/dashboard';
+                                        window.location.href = 'mentor_dashboard.html';
                                     } else if (youAre === 'student') {
                                         var clas = userData.class;
                                         if (clas == 'primary') {
-                                            
-                                            window.location.href = '/primary/dashboard';
+                                            window.location.href = 'primary_dashboard.html';
                                         }
                                         else if (clas == 'secondry') {
-                                            window.location.href = '/secondary/dashboard';
+                                            window.location.href = 'secondary_dashboard.html';
                                         }
                                         else {
-                                            
-                                            window.location.href = '/college/dashboard';
+                                            window.location.href = 'college_dashboard.html';
                                         }
 
                                     }
@@ -86,7 +83,7 @@
 
                             } else {
                                 // User data does not exist, redirect to user_input.html
-                                window.location.href = 'user_input';
+                                window.location.href = 'user_input.html';
                             }
                         })
                         .catch(function (error) {
