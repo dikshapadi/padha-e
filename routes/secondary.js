@@ -40,4 +40,10 @@ router.get("/home", (req,res) => {
 router.get('/secondary/schedule',(req,res) =>{
   res.render("secondary/schedule");
 });
+
+router.get('/secondary/mentor',(req,res) =>{
+  res.render("secondary/mentor");
+});
+
+
 export default router;
