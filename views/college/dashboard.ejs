@@ -512,6 +512,8 @@
 
           // Update the page content with user-specific data
           document.getElementById('user-name').textContent = userData.name;
+          setCookie('username', userData.name, 1);
+          
           plotSubjectPieChart(authenticatedUserId);
 
         } catch (error) {

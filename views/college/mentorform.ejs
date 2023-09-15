@@ -33,6 +33,9 @@
    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
    <link rel="shortcut icon" href="/img/favicon.ico" />
   <style>
+     body {
+      display: none;
+    }
     /* CSS Styling for completed tasks */
     .completed {
       text-decoration: line-through;
@@ -246,15 +249,12 @@
                     <input type="number" class="form-control" id="pno" placeholder="1234567890">
                   </div>
                   <div class="form-group">
-
                     <!-- <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MbwKaNWB072tO9" async> </script> -->
-                    <div class="form-group">
-
-                      <label for="payemnt">Pay INR 500 to proceed</label>
-
-                    </div>
-                    <button class="btn btn-light">Cancel</button>
+                    <!-- <label for="payemnt">Pay INR 500 to proceed</label> -->
+                  </div>
+                  <button class="btn btn-light">Cancel</button>
                 </form>
+                
               </div>
               <button id="Apply" class="btn btn-primary me-2">Apply</button>
             </div>
@@ -298,13 +298,13 @@
           userRef.on('value', (snapshot) => {
             if (snapshot.exists()) {
               const userData = snapshot.val();
-              mname.textContent = userData.name;
-              pno.textContent = userData.phoneNumber;
+              mname.value = userData.name;
+              pno.value = userData.phoneNumber;
             }
           });
         } else {
           // Handle the case when there is no authenticated user
-          userDataDiv.innerHTML = "No authenticated user. Please log in or register.";
+           console.log( "No authenticated user. Please log in or register");
         }
       });
 
@@ -369,6 +369,26 @@
         }
       }
     </script>
+       <script>
+        const name = getCookie('username');
+        document.getElementById('user-name').textContent = name;
+        document.body.style.display = "block";
+    
+        function getCookie(name) {
+          const cookieName = name + "=";
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i];
+            while (cookie.charAt(0) === ' ') {
+              cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(cookieName) === 0) {
+              return cookie.substring(cookieName.length, cookie.length);
+            }
+          }
+          return null; // Return null if the cookie is not found
+        }
+      </script>
 
     <!-- container-scroller -->
     <!-- plugins:js -->
