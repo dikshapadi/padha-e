@@ -6,6 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>My Dashboard</title>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
 
   <!-- plugins:css -->
   <link rel="stylesheet" href="/vendors/feather/feather.css">
@@ -32,39 +35,45 @@
     }
 
     .card-spacing {
-  padding: 20px; /* Adjust the padding as needed */
-}
+      padding: 20px;
+      /* Adjust the padding as needed */
+    }
 
-/* Define a fixed height for the cards */
-.card-fixed-height {
-    height: 200px; /* Adjust the height as needed */
-}
+    /* Define a fixed height for the cards */
+    .card-fixed-height {
+      height: 200px;
+      /* Adjust the height as needed */
+    }
 
-/* Style the card body */
-.card-body-custom {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
+    /* Style the card body */
+    .card-body-custom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
 
-/* Style the image to fill the card */
-.card-img-custom {
-    flex-grow: 1;
-    object-fit: cover;
-    width: 100%;
-    border-radius: 10px; /* Preserve curved radius borders */
-}
-#google_translate_element {
-            position: absolute;
-            top: 20px; /* Adjust the top position to your preference */
-            right: 260px; /* Adjust the right position to your preference */
-        }
+    /* Style the image to fill the card */
+    .card-img-custom {
+      flex-grow: 1;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 10px;
+      /* Preserve curved radius borders */
+    }
 
+    #google_translate_element {
+      position: absolute;
+      top: 20px;
+      /* Adjust the top position to your preference */
+      right: 260px;
+      /* Adjust the right position to your preference */
+    }
   </style>
 </head>
+
 <body>
-  <div class="container-scroller"> 
+  <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -77,13 +86,13 @@
           <a class="navbar-brand brand-logo" href="index.html">
             <h3 class="text-black fw-bold">Padha-<span class="text-black fw-bold" style="color: blue;">e</span></h1>
           </a>
-          
+
           <a class="navbar-brand brand-logo-mini" href="index.html">
             <img src="images/logo-mini.svg" alt="logo" />
           </a>
         </div>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+      <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Welcome back <span class="text-black fw-bold">mentee!</span></h1>
@@ -91,8 +100,8 @@
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-        
-        
+
+
           <li class="nav-item d-none d-lg-block">
             <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
               <span class="input-group-addon input-group-prepend border-right">
@@ -101,21 +110,23 @@
               <input type="text" class="form-control">
             </div>
           </li>
-      
+
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-user-graduate" style="font-size: 40px;"></i>
 
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <div class="dropdown-header text-center">
-    
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                <div class="dropdown-header text-center">
+
+                </div>
+                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
+                  Profile</a>
+                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
               </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
-            </div>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-bs-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -128,8 +139,12 @@
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close ti-close"></i>
           <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+            <div class="img-ss rounded-circle bg-light border me-3"></div>Light
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border me-3"></div>Dark
+          </div>
           <p class="settings-heading mt-2">HEADER SKINS</p>
           <div class="color-tiles mx-0 px-4">
             <div class="tiles success"></div>
@@ -141,7 +156,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar" style="max-width: 350px;">
         <ul class="nav">
@@ -153,34 +168,34 @@
           </li>
 
           <li class="nav-item nav-category">e-Learn</li>
-            <li class="nav-item" style="font-size: 18px;">
-              <a class="nav-link" href="/college/study">
-                <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-                <span class="menu-title" style="font-size: 16px;">Study Materials</span>
-                
-              </a>
-            </li>
-            <li class="nav-item" style="font-size: 16px;">
-              <a class="nav-link" href="">
-                <i class="menu-icon mdi mdi-content-paste"></i>
-                <span class="menu-title" style="font-size: 16px;">Quizzes</span>
-            
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <i class="menu-icon mdi mdi-content-paste"></i>
-                <span class="menu-title" style="font-size: 16px;">Physical materials</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/college/coding">
-                <i class="menu-icon mdi mdi-laptop-mac"></i>
-                <span class="menu-title" style="font-size: 16px;">Coding platforms</span>
-                
-              </a>
-            </li>
+          <li class="nav-item" style="font-size: 18px;">
+            <a class="nav-link" href="/college/study">
+              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
+              <span class="menu-title" style="font-size: 16px;">Study Materials</span>
+
+            </a>
+          </li>
+          <li class="nav-item" style="font-size: 16px;">
+            <a class="nav-link" href="">
+              <i class="menu-icon mdi mdi-content-paste"></i>
+              <span class="menu-title" style="font-size: 16px;">Quizzes</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <i class="menu-icon mdi mdi-content-paste"></i>
+              <span class="menu-title" style="font-size: 16px;">Physical materials</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/college/coding">
+              <i class="menu-icon mdi mdi-laptop-mac"></i>
+              <span class="menu-title" style="font-size: 16px;">Coding platforms</span>
+
+            </a>
+          </li>
 
 
           <li class="nav-item nav-category">OTHERS</li>
@@ -188,120 +203,203 @@
             <a class="nav-link">
               <i class="menu-icon mdi mdi-coin"></i>
               <span class="menu-title" style="font-size: 16px;">Apply financial aid</span>
-              
+
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link">
               <i class="menu-icon mdi mdi-human-greeting"></i>
               <span class="menu-title" style="font-size: 16px;">Get mentorship</span>
-              
+
             </a>
           </li>
 
-        
 
-          
+
+
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-            <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Empowerment Starts Here: Ready to Transform, Ready to Thrive!</h4>
-                    <p class="card-description">
-                        Subscribe to a mentorship program and get access to live lectures and
-                        1-1 guidance.                 
-                    </p>
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Empowerment Starts Here: Ready to Transform, Ready to Thrive!</h4>
+                <p class="card-description">
+                  Subscribe to a mentorship program and get access to live lectures and
+                  1-1 guidance.
+                </p>
 
-                    <form class="forms-sample" id="mentorform">
-                      <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="menteeName" placeholder="Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <p class="card-description">
-                            The email you used to register into padha-e ONLY.                 
-                        </p>
-                        <input type="email" class="form-control" id="email" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                          <select class="form-control" id="gender">
-                            <option>Male</option>
-                            <option>Female</option>
-                          </select>
-                        </div>
-                        <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MbwKaNWB072tO9" async> </script>
-                        <div class="form-group">
-
-                            <label for="payemnt">Pay INR 500 to proceed</label>
-                              
-                        </div>
-                        <button type="submit" class="btn btn-primary me-2">Apply</button>
-                      <button class="btn btn-light">Cancel</button>
-                    </form>
+                <form class="forms-sample" id="mentorform">
+                  <div class="form-group">
+                    <label for="exampleInputName1">Name</label>
+                    <input type="text" class="form-control" id="menteeName" placeholder="Name">
                   </div>
-                </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Ph-no</label>
+                    <input type="number" class="form-control" id="pno" placeholder="1234567890">
+                  </div>
+                  <div class="form-group">
+
+                    <!-- <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MbwKaNWB072tO9" async> </script> -->
+                    <div class="form-group">
+
+                      <label for="payemnt">Pay INR 500 to proceed</label>
+
+                    </div>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
               </div>
-                    
+              <button id="Apply" class="btn btn-primary me-2">Apply</button>
+            </div>
+          </div>
 
 
 
+
+        </div>
+        <!-- main-panel ends -->
       </div>
-      <!-- main-panel ends -->
+      <!-- page-body-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <script>
-    
-    
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
+        authDomain: "sih-e-f67f9.firebaseapp.com",
+        databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
+        projectId: "sih-e-f67f9",
+        storageBucket: "sih-e-f67f9.appspot.com",
+        messagingSenderId: "113038032158",
+        appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
+        measurementId: "G-FWVHBTC79W"
+      };
 
-  </script>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="/vendors/chart.js/Chart.min.js"></script>
-  <script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <script src="/vendors/progressbar.js/progressbar.min.js"></script>
+      const app = firebase.initializeApp(firebaseConfig);
+      const auth = app.auth();
+      const database = app.database();
 
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="/js/off-canvas.js"></script>
-  <script src="/js/hoverable-collapse.js"></script>
-  <script src="/js/template.js"></script>
-  <script src="/js/settings.js"></script>
-  <script src="/js/todolist.js"></script>
-  <script src="/js/file-upload.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="/js/dashboard.js"></script>
-  <script src="/js/Chart.roundedBarCharts.js"></script>
+      const userDataDiv = document.getElementById("userData");
+      let applybtn = document.getElementById("Apply");
+      let mname = document.getElementById("menteeName");
+      let pno = document.getElementById("pno");
 
-  <script type="module" src="/js/mentorform.js"></script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  
-  <script>
-    function googleTranslateElementInit() {
+      // Check if a user is authenticated
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          const userId = user.uid;
+          const userRef = database.ref('users/' + userId);
+
+          userRef.on('value', (snapshot) => {
+            if (snapshot.exists()) {
+              const userData = snapshot.val();
+              mname.textContent = userData.name;
+              pno.textContent = userData.phoneNumber;
+            }
+          });
+        } else {
+          // Handle the case when there is no authenticated user
+          userDataDiv.innerHTML = "No authenticated user. Please log in or register.";
+        }
+      });
+
+      applybtn.addEventListener('click', function () {
+        const user = auth.currentUser;
+        sendd(user);
+      });
+
+      async function filterMentors(filterCriteria) {
+        const mentorList = [];
+        const usersRef = database.ref('users');
+        const snapshot = await usersRef.once('value');
+        const userData = snapshot.val();
+
+        for (const userId in userData) {
+          const user = userData[userId];
+          if (user.youAre === 'mentor' && user.class === filterCriteria.className) {
+            mentorList.push({
+              userId: userId,
+              name: user.name
+            });
+          }
+        }
+        return mentorList;
+      }
+
+      async function sendd(user) {
+        const filterCriteria = {
+          role: 'mentor',
+          className: "college"
+        };
+
+        const mentorData = await filterMentors(filterCriteria);
+        assignMentor(mentorData);
+      }
+
+      function assignMentor(mentorData) {
+        if (mentorData.length === 0) {
+          alert("mentors currently not available for your criteria.");
+          return;
+        }
+
+        const randomIndex = Math.floor(Math.random() * mentorData.length);
+        const assignedMentor = mentorData[randomIndex];
+
+        const user = auth.currentUser;
+        if (user) {
+          const userId = user.uid;
+          const userRef = database.ref('users/' + userId);
+          userRef.update({
+            mentor: assignedMentor.userId
+          })
+            .then(() => {
+              console.log("Successfully updated mentor");
+            })
+            .catch((error) => {
+              console.error("Error updating mentor assignment:", error);
+            });
+        } else {
+          console.log("no auth user found");
+        }
+      }
+    </script>
+
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/vendors/chart.js/Chart.min.js"></script>
+    <script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="/vendors/progressbar.js/progressbar.min.js"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/js/off-canvas.js"></script>
+    <script src="/js/hoverable-collapse.js"></script>
+    <script src="/js/template.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/todolist.js"></script>
+    <script src="/js/file-upload.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/Chart.roundedBarCharts.js"></script>
+
+    <script type="module" src="/js/mentorform.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+      function googleTranslateElementInit() {
         new google.translate.TranslateElement(
-            {
-                pageLanguage: 'en',
-                includedLanguages: 'ml'
-            },
-            'google_translate_element'
+          {
+            pageLanguage: 'en',
+            includedLanguages: 'ml'
+          },
+          'google_translate_element'
         );
-    }
+      }
     </script>
 </body>
 
 </html>
-
