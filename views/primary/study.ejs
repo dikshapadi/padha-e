@@ -59,7 +59,64 @@
         right: 260px; /* Adjust the right position to your preference */
     }
 
-    
+    .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('/images/garfield.jpg');
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 300px;
+    z-index: 1000;
+  }
+  
+  /* Popup content */
+  .popup-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Popup header */
+  .popup-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 30px;
+    border-radius: 5px 5px 15px 0;
+  }
+  
+  .popup-header h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* Popup body */
+  .popup-body {
+    padding: 20px;
+    font-size: 18px;
+  }
+  
+  /* Popup footer */
+  .popup-footer {
+    padding: 15px;
+  }
+  
+  /* Close button */
+  #closePopup {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  #closePopup:hover {
+    background-color: #0056b3;
+  }
 
   </style>
 </head>
@@ -145,7 +202,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar" style="max-width: 350px;">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/college/dashboard">
+            <a class="nav-link" href="/primary/dashboard">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title" style="font-size: 16px;">Dashboard</span>
             </a>
@@ -153,14 +210,14 @@
 
           <li class="nav-item nav-category">e-Learn</li>
             <li class="nav-item" style="font-size: 18px;">
-              <a class="nav-link" href="/college/study">
+              <a class="nav-link" href="/primary/study">
                 <i class="menu-icon mdi mdi-book-open-page-variant"></i>
                 <span class="menu-title" style="font-size: 16px;">Study Materials</span>
                 
               </a>
             </li>
             <li class="nav-item" style="font-size: 16px;">
-              <a class="nav-link" href="">
+              <a class="nav-link" href="/primary/quiz">
                 <i class="menu-icon mdi mdi-content-paste"></i>
                 <span class="menu-title" style="font-size: 16px;">Quizzes</span>
             
@@ -172,18 +229,12 @@
                 <span class="menu-title" style="font-size: 16px;">Physical materials</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/college/coding">
-                <i class="menu-icon mdi mdi-laptop-mac"></i>
-                <span class="menu-title" style="font-size: 16px;">Coding platforms</span>
-                
-              </a>
-            </li>
+            
 
 
           <li class="nav-item nav-category">OTHERS</li>
           <li class="nav-item">
-            <a class="nav-link">
+            <a class="nav-link" href="">
               <i class="menu-icon mdi mdi-coin"></i>
               <span class="menu-title" style="font-size: 16px;">Apply financial aid</span>
               
@@ -314,7 +365,17 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
+  <div id="overlay" style="display: none;"></div>
+  <div id="screenTimePopup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2>Time to rest your eyes 👀</h2>
+      </div>
+      <div class="popup-footer">
+        <button id="closePopup">Close</button>
+      </div>
+    </div>
+  </div>
   <!-- plugins:js -->
   <script src="/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
@@ -329,6 +390,7 @@
   <script src="/js/hoverable-collapse.js"></script>
   <script src="/js/template.js"></script>
   <script src="/js/settings.js"></script>
+  <script src="/js/reminder.js"></script>
   
   <!-- endinject -->
   <!-- Custom js for this page-->
