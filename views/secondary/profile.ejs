@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="/js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="/css/vertical-layout-light/styles.css">
+  <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="/images/favicon.png" />
   <style>
@@ -76,11 +76,11 @@
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="/college/dashboard">
+          <a class="navbar-brand brand-logo" href="/secondary/dashboard">
             <h3 class="text-black fw-bold">Padha-<span class="text-black fw-bold" style="color: blue;">e</span></h1>
           </a>
           
-          <a class="navbar-brand brand-logo-mini" href="/college/dashboard">
+          <a class="navbar-brand brand-logo-mini" href="/secondary/dashboard">
             <img src="images/logo-mini.svg" alt="logo" />
           </a>
         </div>
@@ -106,8 +106,8 @@
       
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-user-graduate" style="font-size: 40px;"></i>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                <i class="fa-solid fa-user-graduate" style="font-size: 40px;"></i>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
     
               </div>
@@ -143,101 +143,11 @@
         </div>
       </div>
       
-      <div id="right-sidebar" class="settings-panel">
-        <i class="settings-close ti-close"></i>
-        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="setting-content">
-          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
-            <div class="add-items d-flex px-3 mb-0">
-              <form class="form w-100">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
-                </div>
-              </form>
-            </div>
-            <div class="list-wrapper px-3">
-              <ul class="d-flex flex-column-reverse todo-list">
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Team review meeting at 3.00 PM
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Prepare for presentation
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Resolve all the low priority tickets due today
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      Schedule meeting for next week
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      Project review
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-              </ul>
-            </div>
-            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
-            <div class="events pt-4 px-3">
-              <div class="wrapper d-flex mb-2">
-                <i class="ti-control-record text-primary me-2"></i>
-                <span>Feb 11 2018</span>
-              </div>
-              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
-              <p class="text-gray mb-0">The total number of sessions</p>
-            </div>
-            <div class="events pt-4 px-3">
-              <div class="wrapper d-flex mb-2">
-                <i class="ti-control-record text-primary me-2"></i>
-                <span>Feb 7 2018</span>
-              </div>
-              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
-              <p class="text-gray mb-0 ">Call Sarah Graves</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
+      
       <nav class="sidebar sidebar-offcanvas" id="sidebar" style="max-width: 350px;">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/college/dashboard">
+            <a class="nav-link" href="/primary/dashboard">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title" style="font-size: 16px;">Dashboard</span>
             </a>
@@ -245,14 +155,14 @@
 
           <li class="nav-item nav-category">e-Learn</li>
             <li class="nav-item" style="font-size: 18px;">
-              <a class="nav-link" href="/college/study">
+              <a class="nav-link" href="">
                 <i class="menu-icon mdi mdi-book-open-page-variant"></i>
                 <span class="menu-title" style="font-size: 16px;">Study Materials</span>
                 
               </a>
             </li>
             <li class="nav-item" style="font-size: 16px;">
-              <a class="nav-link" href="">
+              <a class="nav-link" href="/primary/quiz">
                 <i class="menu-icon mdi mdi-content-paste"></i>
                 <span class="menu-title" style="font-size: 16px;">Quizzes</span>
             
@@ -265,13 +175,7 @@
                 
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/college/coding">
-                <i class="menu-icon mdi mdi-laptop-mac"></i>
-                <span class="menu-title" style="font-size: 16px;">Coding platforms</span>
-                
-              </a>
-            </li>
+           
 
 
           <li class="nav-item nav-category">OTHERS</li>
@@ -288,7 +192,7 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
+                <div class="card card-form card-profile">
                   <div class="card-body">
                     <h4 class="card-title">My profile</h4>
                     
