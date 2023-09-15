@@ -5,8 +5,8 @@ router.get("/secondary/dashboard", (req, res) => {
   res.render("secondary/dashboard");
 });
 
-router.get("/secondary/studymaterials", (req, res) => {
-  res.render("secondary/studymaterials");
+router.get("/secondary/study", (req, res) => {
+  res.render("secondary/study");
 });
 
 router.get("/secondary/mentorform", (req, res) => {
