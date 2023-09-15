@@ -28425,6 +28425,16 @@ div.tagsinput span.tag a {
   background-image: url(/images/clouds.jpg);
 }
 
+.overlay {
+  background-size: contain; /* You can adjust this to 'cover' or other values */
+  width: 150px; /* Adjust the width of the overlay image */
+  height: 300px; /* Adjust the height of the overlay image */
+  position: relative; /* Allows you to position it within the .background container */
+  top: 50%; /* Adjust the vertical position */
+  left: 50%; /* Adjust the horizontal position */
+  transform: translate(-50%, -100%); /* Center the overlay image */
+}
+
 .sidebar .nav {
   overflow: hidden;
   flex-wrap: nowrap;
