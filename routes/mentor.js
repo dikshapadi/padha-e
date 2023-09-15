@@ -8,5 +8,8 @@ router.get("/mentor/dashboard", (req, res) => {
 router.get("/mentor/dashboardold", (req, res) => {
   res.render("mentor/dashboardold");
 });
+router.get("/mentor/Research", (req, res) => {
+  res.render("mentor/Research");
+});
 
 export default router;
