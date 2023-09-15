@@ -29,10 +29,10 @@
   <link rel="shortcut icon" href="/img/favicon.ico" />
 
   <style>
-    body{
+    body {
       display: none;
     }
-    </style>
+  </style>
 
 </head>
 
@@ -165,7 +165,7 @@
 
             </a>
           </li>
-          
+
           <li class="nav-item">
             <a class="nav-link" href="">
               <i class="menu-icon mdi mdi-book-open"></i>
@@ -177,7 +177,7 @@
             <a class="nav-link" href="https://padha-e.daily.co/secondary">
               <i class="menu-icon mdi mdi-message-video"></i>
               <span class="menu-title" style="font-size: 16px;">Go Live</span>
-              
+
             </a>
           </li>
 
@@ -189,11 +189,18 @@
 
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/secondary/mentorform">
-              <i class="menu-icon mdi mdi-account-multiple"></i>
+          <li class="nav-item" id="getMentorshipBtn">
+            <a class="nav-link" href="/college/mentorform">
+              <i class="menu-icon mdi mdi-human-greeting"></i>
               <span class="menu-title" style="font-size: 16px;">Get mentorship</span>
-              <i class="menu-arrow"></i>
+
+            </a>
+          </li>
+          <li class="nav-item" id="Mentor">
+            <a class="nav-link" href="/college/mentor">
+              <i class="menu-icon mdi mdi-human-greeting"></i>
+              <span class="menu-title" style="font-size: 16px;">mentor</span>
+
             </a>
           </li>
 
@@ -214,220 +221,233 @@
                       <div class="card-body">
                         <div class="col-sm-8">
                           <h3 class="text-white upgrade-info mb-0">
-                          Discover a world of knowledge right from your home!
+                            Discover a world of knowledge right from your home!
                           </h3>
-                          <a href="/secondary/mentorform" class="btn btn-info upgrade-btn" style="font-weight: bolder;">Get Mentorship!</a>
+                          <a href="/secondary/mentorform" class="btn btn-info upgrade-btn"
+                            style="font-weight: bolder;">Get Mentorship!</a>
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-8 d-flex flex-column">
+                  <div class="row flex-grow">
+                    <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                      <div class="card card-rounded" style="height: 450px">
+                        <div class="card-body">
+                          <div class="d-sm-flex justify-content-between align-items-start">
+                            <div>
+                              <h4 class="card-title card-title-dash">Monitor Your Skill Progress</h4>
+                              <h5 class="card-subtitle card-subtitle-dash">Watch yourself grow and achieve new
+                                goals every week!</h5>
+                            </div>
+                            <div id="performance-line-legend"></div>
+                          </div>
+                          <div class="chartjs-wrapper mt-5">
+                            <canvas id="subjectPieChart"></canvas>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                    <div class="row">
-                      <div class="col-lg-8 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
-                            <div class="card card-rounded"  style="height: 450px">
-                              <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash">Monitor Your Skill Progress</h4>
-                                    <h5 class="card-subtitle card-subtitle-dash">Watch yourself grow and achieve new
-                                      goals every week!</h5>
-                                  </div>
-                                  <div id="performance-line-legend"></div>
-                                </div>
-                                <div class="chartjs-wrapper mt-5">
-                                  <canvas id="subjectPieChart"></canvas>
-                                </div>
+                <div class="col-lg-4 d-flex flex-column">
+                  <div class="row flex-grow">
+                    <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                      <div class="card bg-primary card-rounded">
+                        <div class="card-body pb-0 card-sc">
+                          <p class="card-title card-title-dash text-black mb-4" style="font-size: 18px;">Stay up to date
+                            on Scholarships!</p>
+                          <p style="font-size: 18px;text-align: center;color: black;">Click here to know more <i
+                              class="fa-solid fa-circle-arrow-down"></i></p>
+                          <div style="display: flex; justify-content: center; align-items: center;">
+                            <a href="https://scholarships.gov.in/"><img src="/images/NSP.png" alt=""
+                                style="width: 200px; height: 200px; margin-bottom: 10px; "></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-8 d-flex flex-column">
+                <div class="row flex-grow">
+                  <div class="col-12 grid-margin stretch-card">
+                    <div class="card card-car">
+                      <div class="card-body">
+                        <div class="d-sm-flex justify-content-between align-items-start">
+                          <div>
+                            <h4 class="card-title card-title-dash" style="color: black;">Communication Skills
+                              Enhancement</h4>
+                            <p class="card-subtitle card-subtitle-dash" style="color: black;">Attend free live sessions
+                              hosted by experienced mentors.</p>
+                          </div>
+                          <div>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0"
+                                type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"
+                                style="background-color: #8ECDDD; color: black; width: 200px;text-align: center;"> Check
+                                Schedule </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                <a class="dropdown-item" href="/secondary/schedule">Live Session</a>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-
-                      <div class="col-lg-4 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
-                            <div class="card bg-primary card-rounded">
-                              <div class="card-body pb-0 card-sc">
-                                <p class="card-title card-title-dash text-black mb-4" style="font-size: 18px;">Stay up to date on Scholarships!</p>
-                                <p style="font-size: 18px;text-align: center;color: black;">Click here to know more <i class="fa-solid fa-circle-arrow-down"></i></p>
-                                <div style="display: flex; justify-content: center; align-items: center;">
-                                    <a href="https://scholarships.gov.in/"><img src="/images/NSP.png" alt="" style="width: 200px; height: 200px; margin-bottom: 10px; "></a>
-                                  </div>
-                                </div>
+                        <div class="d-sm-flex align-items-center mt-1 justify-content-between">
+                          <div class="me-3">
+                            <div id="marketing-overview-legend"></div>
+                          </div>
+                        </div>
+                        <div>
+                          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="/images/1.png" class="d-block w-100" alt="..." style="padding: 5px;">
                               </div>
+                              <div class="carousel-item">
+                                <img src="/images/2.png" class="d-block w-100" alt="..." style="padding: 5px;">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="/images/3.png" class="d-block w-100" alt="..." style="padding: 5px;">
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                              data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                              data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 d-flex flex-column">
+                <div class="row flex-grow">
+                  <div class="col-12 grid-margin stretch-card">
+                    <div class="card card-rounded">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <h4 class="card-title card-title-dash">Todo list</h4>
+                              <div class="add-items d-flex mb-0">
+                                <input id="taskInput" type="text" class="form-control todo-list-input"
+                                  placeholder="Enter your tasks">
+                                <button id="addTaskBtn"
+                                  class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i
+                                    class="mdi mdi-plus"></i></button>
+                              </div>
+                            </div>
+                            <div class="list-wrapper">
+                              <ul id="taskList" class="todo-list todo-list-rounded">
+                                <!-- Tasks will be added dynamically here -->
+                              </ul>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                    <div class="row">
-                      <div class="col-lg-8 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-car">
-                              <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash" style="color: black;">Communication Skills Enhancement</h4>
-                                   <p class="card-subtitle card-subtitle-dash" style="color: black;">Attend free live sessions hosted by experienced mentors.</p>
-                                  </div>
-                                  <div>
-                                    <div class="dropdown">
-                                      <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #8ECDDD; color: black; width: 200px;text-align: center;"> Check Schedule </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                        <a class="dropdown-item" href="/secondary/schedule">Live Session</a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="d-sm-flex align-items-center mt-1 justify-content-between">
-                                  <div class="me-3"><div id="marketing-overview-legend"></div></div>
-                                </div>
-                               <div>
-                                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                                  <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                      <img src="/images/1.png" class="d-block w-100" alt="..."style="padding: 5px;">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="/images/2.png" class="d-block w-100" alt="..." style="padding: 5px;">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="/images/3.png" class="d-block w-100" alt="..." style="padding: 5px;">
-                                    </div>
-                                  </div>
-                                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                  </button>
-                                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                  </button>
-                                </div>
-
-                               </div>
-                              </div>
+            <div class="row">
+              <div class="row flex-grow">
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card card-rounded">
+                    <div class="card-body">
+                      <div class="d-sm-flex justify-content-between align-items-start">
+                        <div>
+                          <h4 class="card-title card-title-dash">Top Entrance Exams</h4>
+                          <p class="card-subtitle card-subtitle-dash">Explore the top entrance exams for
+                            UG.</p>
+                        </div>
+                        <!-- Add filtering or sorting options here if needed -->
+                      </div>
+                      <div class="exam-list mt-4">
+                        <!-- JEE Main -->
+                        <div class="exam-item d-sm-flex align-items-center justify-content-between mb-3">
+                          <div class="exam-info d-flex align-items-center">
+                            <div class="exam-photo">
+                              <img src="/images/jeemain_pic (2).jpeg" alt="JEE Main" />
+                            </div>
+                            <div class="exam-details ms-3">
+                              <h5 class="exam-name">Joint Entrance Examination (JEE)</h5>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-lg-12">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <h4 class="card-title card-title-dash">Todo list</h4>
-                                      <div class="add-items d-flex mb-0">
-                                        <input id="taskInput" type="text" class="form-control todo-list-input" placeholder="Enter your tasks">
-                                        <button id="addTaskBtn" class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
-                                      </div>
-                                    </div>
-                                    <div class="list-wrapper">
-                                      <ul id="taskList" class="todo-list todo-list-rounded">
-                                        <!-- Tasks will be added dynamically here -->
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                          <div class="exam-actions">
+                            <!-- Include website link in the "Visit" button -->
+                            <a href="https://jeemain.nta.nic.in/" target="_blank" class="btn btn-primary btn-sm">Visit
+                              Website</a>
                           </div>
                         </div>
-                      </div>
-                    </div>
 
-                    <div class="row">
-                      <div class="row flex-grow">
-                        <div class="col-12 grid-margin stretch-card">
-                          <div class="card card-rounded">
-                            <div class="card-body">
-                              <div class="d-sm-flex justify-content-between align-items-start">
-                                <div>
-                                  <h4 class="card-title card-title-dash">Top Entrance Exams</h4>
-                                  <p class="card-subtitle card-subtitle-dash">Explore the top entrance exams for
-                                    UG.</p>
-                                </div>
-                                <!-- Add filtering or sorting options here if needed -->
-                              </div>
-                              <div class="exam-list mt-4">
-                                <!-- JEE Main -->
-                                <div class="exam-item d-sm-flex align-items-center justify-content-between mb-3">
-                                  <div class="exam-info d-flex align-items-center">
-                                    <div class="exam-photo">
-                                      <img src="/images/jeemain_pic (2).jpeg" alt="JEE Main" />
-                                    </div>
-                                    <div class="exam-details ms-3">
-                                      <h5 class="exam-name">Joint Entrance Examination (JEE)</h5>
-                                    </div>
-                                  </div>
-                                  <div class="exam-actions">
-                                    <!-- Include website link in the "Visit" button -->
-                                    <a href="https://jeemain.nta.nic.in/" target="_blank"
-                                      class="btn btn-primary btn-sm">Visit Website</a>
-                                  </div>
-                                </div>
-
-                                <!-- NEET -->
-                                <div class="exam-item d-sm-flex align-items-center justify-content-between mb-3">
-                                  <div class="exam-info d-flex align-items-center">
-                                    <div class="exam-photo">
-                                      <img src="/images/neet_pic (1).png" alt="NEET" />
-                                    </div>
-                                    <div class="exam-details ms-3">
-                                      <h5 class="exam-name">National Eligibility cum Entrance Test (NEET)</h5>
-                                    </div>
-                                  </div>
-                                  <div class="exam-actions">
-                                    <!-- Include website link in the "Visit" button -->
-                                    <a href="https://neet.nta.nic.in/" target="_blank"
-                                      class="btn btn-primary btn-sm">Visit Website</a>
-                                  </div>
-                                </div>
-
-                                <!-- CAT -->
-                                <div class="exam-item d-sm-flex align-items-center justify-content-between mb-3">
-                                  <div class="exam-info d-flex align-items-center">
-                                    <div class="exam-photo">
-                                      <img src="/images/cuet_pic (1).png" alt="CUET" />
-                                    </div>
-                                    <div class="exam-details ms-3">
-                                      <h5 class="exam-name">Common University Entrance Test (CUET)</h5>
-                                    </div>
-                                  </div>
-                                  <div class="exam-actions">
-                                    <!-- Include website link in the "Visit" button -->
-                                    <a href="https://cuet.samarth.ac.in/" target="_blank"
-                                      class="btn btn-primary btn-sm">Visit Website</a>
-                                  </div>
-                                </div>
-
-                                <!-- CLAT -->
-                                <div class="exam-item d-sm-flex align-items-center justify-content-between mb-3">
-                                  <div class="exam-info d-flex align-items-center">
-                                    <div class="exam-photo">
-                                      <img src="/images/clat_pic (1).jpeg" alt="CLAT" />
-                                    </div>
-                                    <div class="exam-details ms-3">
-                                      <h5 class="exam-name">Common Law Admission Test (CLAT)</h5>
-                                    </div>
-                                  </div>
-                                  <div class="exam-actions">
-                                    <!-- Include website link in the "Visit" button -->
-                                    <a href="https://consortiumofnlus.ac.in/" target="_blank"
-                                      class="btn btn-primary btn-sm">Visit Website</a>
-                                  </div>
-                                </div>
-                              </div>
+                        <!-- NEET -->
+                        <div class="exam-item d-sm-flex align-items-center justify-content-between mb-3">
+                          <div class="exam-info d-flex align-items-center">
+                            <div class="exam-photo">
+                              <img src="/images/neet_pic (1).png" alt="NEET" />
                             </div>
+                            <div class="exam-details ms-3">
+                              <h5 class="exam-name">National Eligibility cum Entrance Test (NEET)</h5>
+                            </div>
+                          </div>
+                          <div class="exam-actions">
+                            <!-- Include website link in the "Visit" button -->
+                            <a href="https://neet.nta.nic.in/" target="_blank" class="btn btn-primary btn-sm">Visit
+                              Website</a>
+                          </div>
+                        </div>
+
+                        <!-- CAT -->
+                        <div class="exam-item d-sm-flex align-items-center justify-content-between mb-3">
+                          <div class="exam-info d-flex align-items-center">
+                            <div class="exam-photo">
+                              <img src="/images/cuet_pic (1).png" alt="CUET" />
+                            </div>
+                            <div class="exam-details ms-3">
+                              <h5 class="exam-name">Common University Entrance Test (CUET)</h5>
+                            </div>
+                          </div>
+                          <div class="exam-actions">
+                            <!-- Include website link in the "Visit" button -->
+                            <a href="https://cuet.samarth.ac.in/" target="_blank" class="btn btn-primary btn-sm">Visit
+                              Website</a>
+                          </div>
+                        </div>
+
+                        <!-- CLAT -->
+                        <div class="exam-item d-sm-flex align-items-center justify-content-between mb-3">
+                          <div class="exam-info d-flex align-items-center">
+                            <div class="exam-photo">
+                              <img src="/images/clat_pic (1).jpeg" alt="CLAT" />
+                            </div>
+                            <div class="exam-details ms-3">
+                              <h5 class="exam-name">Common Law Admission Test (CLAT)</h5>
+                            </div>
+                          </div>
+                          <div class="exam-actions">
+                            <!-- Include website link in the "Visit" button -->
+                            <a href="https://consortiumofnlus.ac.in/" target="_blank"
+                              class="btn btn-primary btn-sm">Visit Website</a>
                           </div>
                         </div>
                       </div>
@@ -438,11 +458,15 @@
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
       </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+  </div>
+  </div>
+  <!-- content-wrapper ends -->
+  </div>
+  <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
   <script>
@@ -500,6 +524,14 @@
         // Retrieve user data for the authenticated user
         const userData = await getUserData(authenticatedUserId);
 
+        if (userData.hasOwnProperty('mentor')) {
+          // Hide the 'Get mentorship' button if the 'mentor' key exists
+          document.getElementById('getMentorshipBtn').style.display = 'none';
+        } else {
+          // Hide the 'mentor' button if the 'mentor' key does not exist
+          document.getElementById('Mentor').style.display = 'none';
+        }
+
         // Update the page content with user-specific data
         document.getElementById('user-name').textContent = userData.name;
         document.body.style.display = "block";
@@ -522,85 +554,85 @@
   </script>
   <script>
     async function plotSubjectPieChart(userId) {
-  const userData = await getUserData(userId);
+      const userData = await getUserData(userId);
 
-  if (!userData.quiz || Object.keys(userData.quiz).length === 0) {
-    const ctx = document.getElementById('subjectPieChart').getContext('2d');
-    ctx.font = "25px Arial";
-    ctx.fillText("No Quiz Data Available", 0, 50);// firiendly message if no quiz daa is available
-    return;
-  }
-  
-  const quizData = userData.quiz || {};
-  const subjectScores = {};
-
-  for (const classId in quizData) {
-    for (const subject in quizData[classId]) {
-      if (!subjectScores[subject]) {
-        subjectScores[subject] = [];
+      if (!userData.quiz || Object.keys(userData.quiz).length === 0) {
+        const ctx = document.getElementById('subjectPieChart').getContext('2d');
+        ctx.font = "25px Arial";
+        ctx.fillText("No Quiz Data Available", 0, 50);// firiendly message if no quiz daa is available
+        return;
       }
-      subjectScores[subject].push(quizData[classId][subject]);
-    }
-  }
-  
-  const subjectNames = Object.keys(subjectScores);
-  const averagedScores = subjectNames.map((subject) => {
-    const scores = subjectScores[subject];
-    const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
-    return averageScore;
-  });
 
-  const ctx = document.getElementById('subjectPieChart').getContext('2d');
-  const chart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: subjectNames,
-      datasets: [{
-        data: averagedScores,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.5)',
-          'rgba(54, 162, 235, 0.5)',
-          'rgba(255, 206, 86, 0.5)',
-          'rgba(75, 192, 192, 0.5)'
-        ],
-      }]
-    },
-    options: {
-      plugins: {
-        legend: {
-          display: true,
-          labels: {
-            boxWidth: 50,
-            padding: 10,
+      const quizData = userData.quiz || {};
+      const subjectScores = {};
+
+      for (const classId in quizData) {
+        for (const subject in quizData[classId]) {
+          if (!subjectScores[subject]) {
+            subjectScores[subject] = [];
+          }
+          subjectScores[subject].push(quizData[classId][subject]);
+        }
+      }
+
+      const subjectNames = Object.keys(subjectScores);
+      const averagedScores = subjectNames.map((subject) => {
+        const scores = subjectScores[subject];
+        const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
+        return averageScore;
+      });
+
+      const ctx = document.getElementById('subjectPieChart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: subjectNames,
+          datasets: [{
+            data: averagedScores,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.5)',
+              'rgba(54, 162, 235, 0.5)',
+              'rgba(255, 206, 86, 0.5)',
+              'rgba(75, 192, 192, 0.5)'
+            ],
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+              labels: {
+                boxWidth: 50,
+                padding: 10,
+              },
+            },
           },
         },
-      },
-    },
-  });
-}
+      });
+    }
 
   </script>
-<!-- plugins:js -->
-<script src="/vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page -->
-<script src="/vendors/chart.js/Chart.min.js"></script>
-<script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-<script src="/vendors/progressbar.js/progressbar.min.js"></script>
+  <!-- plugins:js -->
+  <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/vendors/chart.js/Chart.min.js"></script>
+  <script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/vendors/progressbar.js/progressbar.min.js"></script>
 
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-<script src="/js/off-canvas.js"></script>
-<script src="/js/hoverable-collapse.js"></script>
-<script src="/js/template.js"></script>
-<script src="/js/settings.js"></script>
-<script src="/js/todolist.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="/js/dashboard.js"></script>
-<script src="/js/Chart.roundedBarCharts.js"></script>
-<!-- End custom js for this page-->
-<script type="module"  src="/js/Atodolist.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/hoverable-collapse.js"></script>
+  <script src="/js/template.js"></script>
+  <script src="/js/settings.js"></script>
+  <script src="/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
+  <script type="module" src="/js/Atodolist.js"></script>
   <script type="module" src="/js/Atodolist.js"></script>
 
 
