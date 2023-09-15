@@ -358,7 +358,8 @@
             mentor: assignedMentor.userId
           })
             .then(() => {
-              console.log("Successfully updated mentor");
+              alert("Submission successful");
+              window.location.href="dashboard";
             })
             .catch((error) => {
               console.error("Error updating mentor assignment:", error);
