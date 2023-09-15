@@ -17,6 +17,10 @@ router.get('/college/mentorform',(req,res) =>{
     res.render("college/mentorform");
 });
 
+router.get('/college/aid',(req,res) =>{
+    res.render("college/aid");
+  });
+
 router.get('/college/profile',(req,res) =>{
     res.render("college/profile");
 });
@@ -31,4 +35,9 @@ router.get("/college/quiz", (req, res) => {
   router.get("/home", (req,res) => {
 	res.render("home/main");
 });
+
+router.get("/college/mentor", (req,res) => {
+	res.render("college/mentor");
+});
+
 export default router;
