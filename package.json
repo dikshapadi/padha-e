@@ -11,6 +11,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "@daily-co/daily-js": "^0.51.0",
     "body-parser": "^1.20.2",
     "bootstrap": "^5.3.1",
     "bootstrap-datepicker": "^1.10.0",

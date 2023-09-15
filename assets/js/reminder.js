@@ -18,7 +18,7 @@ function closePopup() {
 }
 
 // Show the popup after a certain time (e.g., 30 minutes)
-const popupTimer = setInterval(showPopup, 10000); // 30 minutes in milliseconds
+const popupTimer = setInterval(showPopup, 300000);
 
 // Close the popup when the close button is clicked
 closePopupButton.addEventListener("click", closePopup);

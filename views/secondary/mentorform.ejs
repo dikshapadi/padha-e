@@ -21,14 +21,14 @@
   <link rel="stylesheet" href="/js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="/css/vertical-layout-light/styles.css">
   <!-- endinject -->
- <!-- Firebase scripts -->
- <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
- <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
- <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
- <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
- <link rel="shortcut icon" href="/img/favicon.ico" />
+  <!-- Firebase scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+  <link rel="shortcut icon" href="/img/favicon.ico" />
   <style>
     /* CSS Styling for completed tasks */
     .completed {
@@ -79,11 +79,11 @@
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="/primary/dashboard">
+          <a class="navbar-brand brand-logo" href="/secondary/dashboard">
             <h3 class="text-black fw-bold">Padha-<span class="text-black fw-bold" style="color: blue;">e</span></h1>
           </a>
           
-          <a class="navbar-brand brand-logo-mini" href="/primary/dashboard">
+          <a class="navbar-brand brand-logo-mini" href="/secondary/dashboard">
             <img src="images/logo-mini.svg" alt="logo" />
           </a>
         </div>
@@ -146,11 +146,12 @@
           </div>
         </div>
       </div>
+      
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar" style="max-width: 350px;">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/primary/dashboard">
+            <a class="nav-link" href="/secondary/dashboard">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title" style="font-size: 16px;">Dashboard</span>
             </a>
@@ -158,14 +159,14 @@
 
           <li class="nav-item nav-category">e-Learn</li>
             <li class="nav-item" style="font-size: 18px;">
-              <a class="nav-link" href="/primary/study">
+              <a class="nav-link" href="/secondary/study">
                 <i class="menu-icon mdi mdi-book-open-page-variant"></i>
                 <span class="menu-title" style="font-size: 16px;">Study Materials</span>
                 
               </a>
             </li>
             <li class="nav-item" style="font-size: 16px;">
-              <a class="nav-link" href="/primary/quiz">
+              <a class="nav-link" href="/secondary/quiz">
                 <i class="menu-icon mdi mdi-content-paste"></i>
                 <span class="menu-title" style="font-size: 16px;">Quizzes</span>
             
@@ -178,15 +179,21 @@
                 
               </a>
             </li>
+            
+
 
           <li class="nav-item nav-category">OTHERS</li>
           <li class="nav-item">
-            <a class="nav-link">
+            <a class="nav-link" href="/secondary/aid">
               <i class="menu-icon mdi mdi-coin"></i>
               <span class="menu-title" style="font-size: 16px;">Apply financial aid</span>
               
             </a>
           </li>
+          
+
+        
+
           
         </ul>
       </nav>
@@ -195,7 +202,7 @@
         <div class="content-wrapper">
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
-                  <div class="card-body card-form">
+                  <div class="card-body">
                     <h4 class="card-title">Empowerment Starts Here: Ready to Transform, Ready to Thrive!</h4>
                     <p class="card-description">
                         Subscribe to a mentorship program and get access to live lectures and
@@ -362,4 +369,6 @@
 </body>
 
 </html>
+
+
 

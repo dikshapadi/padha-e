@@ -12762,7 +12762,6 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   padding-bottom: 0.5rem;
 }
 
-
 .navbar > .container,
 .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
   display: flex;
@@ -13109,24 +13108,10 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: white;
+  background-color: #fff;
   background-clip: border-box;
   border: 1px solid #e3e3e3;
   border-radius: 20px;
-}
-
-.card-car{
-  background-color: #26577C;
-}
-
-.card-form{
-  background-color: white;
-  border:2px white;
-  border-radius: 10px;
-}
-
-.card-profile{
-  margin-left: 250px;
 }
 
 .card > hr {
@@ -13159,6 +13144,11 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
+}
+
+.card-sc{
+  background-color: white;
+  border-radius: 15px;
 }
 
 .card-title {
@@ -16401,7 +16391,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .bg-primary, .settings-panel .color-tiles .tiles.primary {
-  background-color:white !important;
+  background-color: #1F3BB3 !important;
 }
 
 .bg-secondary {
@@ -16433,7 +16423,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .bg-body {
-  background-color: #ffffff !important;
+  background-color: #fff !important;
 }
 
 .bg-white {
@@ -22279,7 +22269,7 @@ code {
 }
 
 .card.table-darkBGImg {
-  background: #26577C url("/images/pikachu.png") repeat-y right top;
+  background: #1E283D url("/images/darkBG.png") repeat-y right top;
 }
 
 .card.tale-bg {
@@ -28395,7 +28385,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background-image: url(/images/clouds.jpg);
+  background: #F4F5F7;
   padding: 1.5rem 2.187rem 1.5rem 3.5rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -28421,18 +28411,6 @@ div.tagsinput span.tag a {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  background-color: white;
-  background-image: url(/images/clouds.jpg);
-}
-
-.overlay {
-  background-size: contain; /* You can adjust this to 'cover' or other values */
-  width: 150px; /* Adjust the width of the overlay image */
-  height: 300px; /* Adjust the height of the overlay image */
-  position: relative; /* Allows you to position it within the .background container */
-  top: 50%; /* Adjust the vertical position */
-  left: 50%; /* Adjust the horizontal position */
-  transform: translate(-50%, -100%); /* Center the overlay image */
 }
 
 .sidebar .nav {
@@ -28440,8 +28418,6 @@ div.tagsinput span.tag a {
   flex-wrap: nowrap;
   flex-direction: column;
   margin-bottom: 60px;
-  background-color: white;
-  background-image: url(/images/clouds.jpg);
 }
 
 .sidebar .nav .nav-item {
@@ -28451,7 +28427,6 @@ div.tagsinput span.tag a {
   transition-duration: 0.25s;
   transition-property: background;
   -webkit-transition-property: background;
-  color: white;
 }
 
 .sidebar .nav .nav-item .collapse {
@@ -28815,13 +28790,10 @@ div.tagsinput span.tag a {
   width: 220px;
   height: 97px;
   padding: 20px 35px;
-  background-image: url(/images/clouds.jpg);
 }
 
 .sidebar-dark .navbar .navbar-brand-wrapper {
   background: #232227;
-  background-image: url(/images/clouds.jpg);
-  
 }
 
 @media (max-width: 991px) {
@@ -28842,7 +28814,6 @@ div.tagsinput span.tag a {
   margin-right: 0;
   padding: 0;
   line-height: 1;
-  background-image: url(/images/clouds.jpg);
 }
 
 .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini {
@@ -28915,7 +28886,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper {
-  background: #fff;
+  background: #F4F5F7;
   transition: width 0.25s ease;
   -webkit-transition: width 0.25s ease;
   -moz-transition: width 0.25s ease;
@@ -28927,7 +28898,6 @@ div.tagsinput span.tag a {
   padding-bottom: 25px;
   width: calc(100% - 220px);
   height: 97px;
-  background-image: url(/images/clouds.jpg);
 }
 
 @media (max-width: 991px) {

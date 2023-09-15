@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase Authentication Example</title>
+    <title>Login</title>
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
@@ -18,6 +18,23 @@
     <div id="login-box"> 
         <h1>Welcome to Padha-e!</h1>
         <div id="firebaseui-auth-container"></div>
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger
+          intent="WELCOME"
+          chat-title="padha-e"
+          agent-id="e45fd370-9f0e-4510-97ba-570509a629e6"
+          language-code="en"
+        ></df-messenger>
+        <style>
+            df-messenger {
+             --df-messenger-bot-message: #829dff;
+             --df-messenger-button-titlebar-color: #ea74f9;
+             --df-messenger-chat-background-color: #fafafa;
+             --df-messenger-font-color: white;
+             --df-messenger-send-icon: #878fac;
+             --df-messenger-user-message: #deb7fc;
+            }
+          </style>
     </div>
     <div id="loader">Loading...</div>
     <script>
@@ -81,7 +98,7 @@
 
                                     }
                                 } else {
-                                    console.log("youAre key not found in user data, handle it accordingly");
+                                    console.log("key not found in user data, handle it accordingly");
                                 }
 
                             } else {

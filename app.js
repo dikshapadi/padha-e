@@ -8,6 +8,11 @@ import secondaryRoutes from "./routes/secondary.js";
 import mentorRoutes from "./routes/mentor.js";
 import homeRoutes from "./routes/home.js";
 
+<<<<<<< HEAD
+=======
+import { handleRazorpayWebhook } from "./webhook.js";
+>>>>>>> 34760829d0e6d39442b760e73039a144ba1b2add
+
 
 
 import path from 'path';
@@ -31,6 +36,14 @@ app.use(secondaryRoutes);
 app.use(mentorRoutes);
 app.use(homeRoutes);
 
+<<<<<<< HEAD
+=======
+
+app.post('/razorpay-webhook', (req, res) => {
+  handleRazorpayWebhook(req, res);
+});
+
+>>>>>>> 34760829d0e6d39442b760e73039a144ba1b2add
 const PORT = process.env.PORT || 5000;
 app.listen(
   PORT,

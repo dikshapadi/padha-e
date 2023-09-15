@@ -273,7 +273,7 @@
             message: document.getElementById("message").value,
         };
 
-        emailjs.send("padha-e", "template_mfygxl6", templateParams)
+        emailjs.send("padha-e", "template_mfygxl6", templateParams)  
             .then(function (response) {
                 console.log("Email sent successfully:", response);
                 alert("Your message has been sent successfully!");
