@@ -26,7 +26,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="/css/vertical-layout-light/styles.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="/images/favicon.png" />
+  <link rel="shortcut icon" href="/img/favicon.ico" />
 
 </head>
 
@@ -41,11 +41,11 @@
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="index.html">
+          <a class="navbar-brand brand-logo" href="/secondary/dashboard">
             <h3 class="text-black fw-bold">Padha-<span class="text-black fw-bold" style="color: blue;">e</span></h1>
 
           </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html">
+          <a class="navbar-brand brand-logo-mini" href="/secondary/dashboard">
             <img src="/images/logo-mini.svg" alt="logo" />
           </a>
         </div>
@@ -95,7 +95,7 @@
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
                 Profile</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+              <a class="dropdown-item" href="/"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
         </ul>
@@ -200,7 +200,7 @@
                           <h3 class="text-white upgrade-info mb-0">
                           Discover a world of knowledge right from your home!
                           </h3>
-                          <a href="/primary/mentorform" class="btn btn-info upgrade-btn" style="font-weight: bolder;">Get Mentorship!</a>
+                          <a href="/secondary/mentorform" class="btn btn-info upgrade-btn" style="font-weight: bolder;">Get Mentorship!</a>
                         </div>
                       </div>
                     </div>
@@ -225,9 +225,17 @@
                                 </div>
                               </div>
                             </div>
+                            <div id="performance-line-legend"></div>
+                          </div>
+
+                          <div class="chartjs-wrapper mt-5">
+                            <canvas id="subjectPieChart"></canvas>
                           </div>
                         </div>  
                       </div>
+                    </div>
+                  </div>
+                </div>
                       <div class="col-lg-4 d-flex flex-column">
                         <div class="row flex-grow">
                           <div class="col-md-6 col-lg-12 grid-margin stretch-card card-sc">
