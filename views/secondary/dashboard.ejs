@@ -28,6 +28,12 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="/img/favicon.ico" />
 
+  <style>
+    body{
+      display: none;
+    }
+    </style>
+
 </head>
 
 <body>
@@ -496,6 +502,7 @@
 
         // Update the page content with user-specific data
         document.getElementById('user-name').textContent = userData.name;
+        document.body.style.display = "block";
         plotSubjectPieChart(authenticatedUserId);
 
       } catch (error) {

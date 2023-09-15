@@ -178,10 +178,18 @@
              
             </a>
           </li>
-          <li class="nav-item" >
+          <li class="nav-item" id="getMentorshipBtn" >
             <a class="nav-link" href="/college/mentorform">
               <i class="menu-icon mdi mdi-human-greeting"></i>
-              <span id="getMentorshipBtn" class="menu-title" style="font-size: 16px;">Get mentorship</span>
+              <span  class="menu-title" style="font-size: 16px;">Get mentorship</span>
+
+            </a>
+          </li>
+          <li class="nav-item"   id="Mentor" >
+            <a class="nav-link" href="/college/mentor">
+              <i class="menu-icon mdi mdi-human-greeting"></i>
+              <span class="menu-title" style="font-size: 16px;">mentor</span>
+
             </a>
           </li>
 
@@ -210,6 +218,7 @@
                                 <br>
                                 
                               </div>
+                              
                             </div>
                           </div>
                         </div>
@@ -475,6 +484,14 @@
 
       // Retrieve user data for the authenticated user
       const userData = await getUserData(authenticatedUserId);
+
+      if (userData.hasOwnProperty('mentor')) {
+      // Hide the 'Get mentorship' button if the 'mentor' key exists
+      document.getElementById('getMentorshipBtn').style.display = 'none';
+    } else {
+      // Hide the 'mentor' button if the 'mentor' key does not exist
+      document.getElementById('Mentor').style.display = 'none';
+    }
       
       document.body.style.display = "block";
 
