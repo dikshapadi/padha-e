@@ -30,6 +30,9 @@
   <link rel="shortcut icon" href="/images/favicon.png" />
     
   <style>
+    body{
+      display: none;
+    }
     /* CSS Styling for completed tasks */
     .completed {
       text-decoration: line-through;
@@ -467,6 +470,8 @@
 
       // Retrieve user data for the authenticated user
       const userData = await getUserData(authenticatedUserId);
+      
+      document.body.style.display = "block";
 
       // Update the page content with user-specific data
       document.getElementById('user-name').textContent = userData.name;
