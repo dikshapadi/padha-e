@@ -30,6 +30,10 @@ router.get("/primary/quiz", (req, res) => {
     res.render("primary/aid");
   });
 
+  router.get('/primary/schedule',(req,res) =>{
+    res.render("primary/schedule");
+  });
+
   router.get("/home", (req,res) => {
     res.render("home/main");
   });

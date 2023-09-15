@@ -25,11 +25,19 @@ router.get("/secondary/quiz", (req, res) => {
   res.render("Quiz/quiz");
 });
 
+router.get("/secondary/aid", (req, res) => {
+  res.render("secondary/aid");
+});
+
 router.get("/quiz", (req, res) => {
   res.render("Quiz/quiz");
 });
 
 router.get("/home", (req,res) => {
 	res.render("home/main");
+});
+
+router.get('/secondary/schedule',(req,res) =>{
+  res.render("secondary/schedule");
 });
 export default router;
