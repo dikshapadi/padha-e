@@ -24,7 +24,11 @@ router.get("/primary/quiz", (req, res) => {
 
   router.get('/primary/study',(req,res) =>{
     res.render("primary/study");
-});
+  });
+
+  router.get('/primary/aid',(req,res) =>{
+    res.render("primary/aid");
+  });
 
   router.get("/home", (req,res) => {
     res.render("home/main");
