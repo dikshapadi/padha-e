@@ -13146,6 +13146,11 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   padding: 1rem 1rem;
 }
 
+.card-sc{
+  background-color: white;
+  border-radius: 15px;
+}
+
 .card-title {
   margin-bottom: 0.5rem;
 }
@@ -28385,6 +28390,7 @@ div.tagsinput span.tag a {
   width: 100%;
   -webkit-flex-grow: 1;
   flex-grow: 1;
+  background-image: url(/images/bg.png);
 }
 
 @media (max-width: 767px) {
