@@ -17,6 +17,10 @@ router.get('/college/mentorform',(req,res) =>{
     res.render("college/mentorform");
 });
 
+router.get('/college/aid',(req,res) =>{
+    res.render("college/aid");
+  });
+
 router.get('/college/profile',(req,res) =>{
     res.render("college/profile");
 });

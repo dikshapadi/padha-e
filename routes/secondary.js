@@ -13,6 +13,10 @@ router.get("/secondary/mentorform", (req, res) => {
   res.render("secondary/mentorform");
 });
 
+router.get('/secondary/aid',(req,res) =>{
+  res.render("secondary/aid");
+});
+
 router.get("/secondary/profile", (req, res) => {
   res.render("secondary/profile");
 });
