@@ -16,4 +16,8 @@ router.get("/mentor/mentee", (req, res) => {
   res.render("mentor/mentee");
 });
 
+router.get("/home", (req,res) => {
+  res.render("home/main");
+});
+
 export default router;
