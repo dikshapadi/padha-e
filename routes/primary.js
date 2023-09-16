@@ -42,7 +42,7 @@ router.get("/primary/quiz", (req, res) => {
     res.render("home/main");
   });
   
-  router.get("/primary/main", (req,res) => {
+  router.get("../../home/main", (req,res) => {
     res.render("home/main");
   });
 
