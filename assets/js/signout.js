@@ -18,7 +18,7 @@ if (!firebase.apps.length) {
     firebase.auth().signOut()
     .then(function() {
       // Sign-out successful.
-      window.location.href = 'main'; // redirect to main.ejs
+      window.location.href = '../../'; // redirect to main.ejs
     })
     .catch(function(error) {
       // An error happened.
