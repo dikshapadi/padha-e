@@ -215,33 +215,17 @@
                         <input type="text" class="form-control" id="menteeName" placeholder="Name">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <p class="card-description">
-                            The email you used to register into padha-e ONLY.                 
-                        </p>
-                        <input type="email" class="form-control" id="email" placeholder="Email">
+                        <label for="exampleInputPassword4">Ph-no</label>
+                        <input type="number" class="form-control" id="pno" placeholder="1234567890">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <!-- <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MbwKaNWB072tO9" async> </script> -->
+                        <!-- <label for="payemnt">Pay INR 500 to proceed</label> -->
                       </div>
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                          <select class="form-control" id="gender">
-                            <option>Male</option>
-                            <option>Female</option>
-                          </select>
-                        </div>
-                        <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MbwKaNWB072tO9" async> </script>
-                        <div class="form-group">
-
-                            <label for="payemnt">Pay INR 500 to proceed</label>
-                              
-                        </div>
-                        <button type="submit" class="btn btn-primary me-2">Apply</button>
                       <button class="btn btn-light">Cancel</button>
                     </form>
                   </div>
+                  <button id="Apply" class="btn btn-primary me-2">Apply</button>
                 </div>
               </div>
                     
@@ -253,6 +237,128 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
+      authDomain: "sih-e-f67f9.firebaseapp.com",
+      databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      projectId: "sih-e-f67f9",
+      storageBucket: "sih-e-f67f9.appspot.com",
+      messagingSenderId: "113038032158",
+      appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
+      measurementId: "G-FWVHBTC79W"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = app.auth();
+    const database = app.database();
+
+    const userDataDiv = document.getElementById("userData");
+    let applybtn = document.getElementById("Apply");
+    let mname = document.getElementById("menteeName");
+    let pno = document.getElementById("pno");
+
+    // Check if a user is authenticated
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const userId = user.uid;
+        const userRef = database.ref('users/' + userId);
+
+        userRef.on('value', (snapshot) => {
+          if (snapshot.exists()) {
+            const userData = snapshot.val();
+            mname.value = userData.name;
+            pno.value = userData.phoneNumber;
+          }
+        });
+      } else {
+        // Handle the case when there is no authenticated user
+         console.log( "No authenticated user. Please log in or register");
+      }
+    });
+
+    applybtn.addEventListener('click', function () {
+      const user = auth.currentUser;
+      sendd(user);
+    });
+
+    async function filterMentors(filterCriteria) {
+      const mentorList = [];
+      const usersRef = database.ref('users');
+      const snapshot = await usersRef.once('value');
+      const userData = snapshot.val();
+
+      for (const userId in userData) {
+        const user = userData[userId];
+        if (user.youAre === 'mentor' && user.class === filterCriteria.className) {
+          mentorList.push({
+            userId: userId,
+            name: user.name
+          });
+        }
+      }
+      return mentorList;
+    }
+
+    async function sendd(user) {
+      const filterCriteria = {
+        role: 'mentor',
+        className: "secondary"
+      };
+
+      const mentorData = await filterMentors(filterCriteria);
+      assignMentor(mentorData);
+    }
+
+    function assignMentor(mentorData) {
+      if (mentorData.length === 0) {
+        alert("mentors currently not available for your criteria.");
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * mentorData.length);
+      const assignedMentor = mentorData[randomIndex];
+
+      const user = auth.currentUser;
+      if (user) {
+        const userId = user.uid;
+        const userRef = database.ref('users/' + userId);
+        userRef.update({
+          mentor: assignedMentor.userId
+        })
+          .then(() => {
+            alert("Submission successful");
+            window.location.href="dashboard";
+          })
+          .catch((error) => {
+            console.error("Error updating mentor assignment:", error);
+          });
+      } else {
+        console.log("no auth user found");
+      }
+    }
+  </script>
+     <script>
+      const name = getCookie('username');
+      document.getElementById('user-name').textContent = name;
+      document.body.style.display = "block";
+  
+      function getCookie(name) {
+        const cookieName = name + "=";
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          let cookie = cookies[i];
+          while (cookie.charAt(0) === ' ') {
+            cookie = cookie.substring(1);
+          }
+          if (cookie.indexOf(cookieName) === 0) {
+            return cookie.substring(cookieName.length, cookie.length);
+          }
+        }
+        return null; // Return null if the cookie is not found
+      }
+    </script>
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="/vendors/js/vendor.bundle.base.js"></script>
@@ -278,81 +384,7 @@
   <script type="module" src="/js/mentorform.js"></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   
-  <script>
-    console.log("hello ");
-    const firebaseConfig = {
-          apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
-          authDomain: "sih-e-f67f9.firebaseapp.com",
-          databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
-          projectId: "sih-e-f67f9",
-          storageBucket: "sih-e-f67f9.appspot.com",
-          messagingSenderId: "113038032158",
-          appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
-          measurementId: "G-FWVHBTC79W"
-      };
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const database = app.database();
-  const auth = app.auth();
-
-  // Function to check user authentication
-  function checkAuthentication() {
-    return new Promise((resolve) => {
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          resolve(user);
-        } else {
-          resolve(null);
-        }
-      });
-    });
-  }
-
-  // Function to retrieve user data from Firebase Realtime Database
-  async function getUserData(userId) {
-    const snapshot = await database.ref(`/users/${userId}`).once('value');
-    return snapshot.val();
-  }
-
-  // Main function to handle user authentication and data retrieval
-  async function main() {
-    try {
-      // Check user authentication
-      const user = await checkAuthentication();
-
-      if (!user) {
-        // Redirect to the login page if not authenticated
-        window.location.href = '/home'; // Replace with your login page URL
-        return;
-      }
-
-      // Get the authenticated user's ID
-      const authenticatedUserId = user.uid;
-      setCookie('userId', authenticatedUserId, 1);
-
-      // Retrieve user data for the authenticated user
-      const userData = await getUserData(authenticatedUserId);
-
-      // Update the page content with user-specific data
-      document.getElementById('user-name').textContent = userData.name;
-      plotSubjectPieChart(authenticatedUserId);
-
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-
-  // Call the main function when the page is loaded
-  window.addEventListener('load', main);
-
-  function setCookie(name, value, days) {
-  const date = new Date();
-  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-  const expires = "expires=" + date.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-  </script>
 
   <script>
     function googleTranslateElementInit() {

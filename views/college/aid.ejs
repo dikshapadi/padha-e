@@ -32,6 +32,9 @@
  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
  <link rel="shortcut icon" href="/img/favicon.ico" />
   <style>
+    body {
+      display: none;
+    }
     /* CSS Styling for completed tasks */
     .completed {
       text-decoration: line-through;
@@ -229,6 +232,27 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
+  <script>
+
+    const name = getCookie('username');
+    document.getElementById('user-name').textContent = name;
+    document.body.style.display = "block";
+
+    function getCookie(name) {
+      const cookieName = name + "=";
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+          cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(cookieName) === 0) {
+          return cookie.substring(cookieName.length, cookie.length);
+        }
+      }
+      return null; // Return null if the cookie is not found
+    }
+  </script>
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="/vendors/js/vendor.bundle.base.js"></script>
@@ -254,81 +278,7 @@
   <script type="module" src="/js/mentorform.js"></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   
-  <script>
-    console.log("hello ");
-    const firebaseConfig = {
-          apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
-          authDomain: "sih-e-f67f9.firebaseapp.com",
-          databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
-          projectId: "sih-e-f67f9",
-          storageBucket: "sih-e-f67f9.appspot.com",
-          messagingSenderId: "113038032158",
-          appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
-          measurementId: "G-FWVHBTC79W"
-      };
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const database = app.database();
-  const auth = app.auth();
-
-  // Function to check user authentication
-  function checkAuthentication() {
-    return new Promise((resolve) => {
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          resolve(user);
-        } else {
-          resolve(null);
-        }
-      });
-    });
-  }
-
-  // Function to retrieve user data from Firebase Realtime Database
-  async function getUserData(userId) {
-    const snapshot = await database.ref(`/users/${userId}`).once('value');
-    return snapshot.val();
-  }
-
-  // Main function to handle user authentication and data retrieval
-  async function main() {
-    try {
-      // Check user authentication
-      const user = await checkAuthentication();
-
-      if (!user) {
-        // Redirect to the login page if not authenticated
-        window.location.href = '/home'; // Replace with your login page URL
-        return;
-      }
-
-      // Get the authenticated user's ID
-      const authenticatedUserId = user.uid;
-      setCookie('userId', authenticatedUserId, 1);
-
-      // Retrieve user data for the authenticated user
-      const userData = await getUserData(authenticatedUserId);
-
-      // Update the page content with user-specific data
-      document.getElementById('user-name').textContent = userData.name;
-      plotSubjectPieChart(authenticatedUserId);
-
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-
-  // Call the main function when the page is loaded
-  window.addEventListener('load', main);
-
-  function setCookie(name, value, days) {
-  const date = new Date();
-  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-  const expires = "expires=" + date.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-  </script>
 
   <script>
     function googleTranslateElementInit() {
