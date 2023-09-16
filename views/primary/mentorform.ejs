@@ -91,7 +91,7 @@
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="/primary/dashbord">
+          <a class="navbar-brand brand-logo" href="/primary/dashboard">
             <h3 class="text-black fw-bold">Padha-<span class="text-black fw-bold" style="color: blue;">e</span></h1>
           </a>
           
@@ -129,7 +129,7 @@
                 </div>
                 <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
                   Profile</a>
-                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+                <a class="dropdown-item" href="#" onclick="signOut();"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
               </div>
           </li>
         </ul>
@@ -234,10 +234,8 @@
                         <label for="exampleInputPassword4">Ph-no</label>
                         <input type="number" class="form-control" id="pno" placeholder="1234567890">
                       </div>
-                    
-                        <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MbwKaNWB072tO9" async> </script>
-                        <label for="payemnt">Pay INR 500 to proceed</label>
-                     
+                      <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MbwKaNWB072tO9" async> </script> 
+                      <label for="payemnt">Pay INR 500 to proceed</label>
                     </form>
                   </div>
                   <button id="Apply" class="btn btn-primary me-2">Apply</button>
@@ -384,6 +382,7 @@
   <script src="/vendors/chart.js/Chart.min.js"></script>
   <script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
   <script src="/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/js/signout.js"></script>
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->

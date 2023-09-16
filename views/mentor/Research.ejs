@@ -28,6 +28,9 @@
   <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
   <link rel="shortcut icon" href="/img/favicon.ico" />
   <style>
+      body {
+      display: none;
+    }
     /* CSS Styling for completed tasks */
     .completed {
       text-decoration: line-through;
@@ -132,7 +135,7 @@
     
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+              <a class="dropdown-item" href="#" onclick="signOut();"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
         </ul>
@@ -344,6 +347,28 @@
           
   <!-- container-scroller -->
 
+  <script>
+
+    const name = getCookie('username');
+    document.getElementById('user-name').textContent = name;
+    document.body.style.display = "block";
+
+    function getCookie(name) {
+      const cookieName = name + "=";
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+          cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(cookieName) === 0) {
+          return cookie.substring(cookieName.length, cookie.length);
+        }
+      }
+      return null; // Return null if the cookie is not found
+    }
+  </script>
+
   <!-- plugins:js -->
   <script src="/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
@@ -362,6 +387,7 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
+  <script src="/js/signout.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
