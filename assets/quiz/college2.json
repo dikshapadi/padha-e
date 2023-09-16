@@ -1,7 +1,7 @@
 {
     "Quiz 2": [
       {
-        "Civics": {
+        "Operating Systems": {
           "questions": [
             {
               "question": "What is the capital of France?",
@@ -57,7 +57,7 @@
         }
       },
       {
-        "History": {
+        "DBMS": {
           "questions": [
             {
               "question": "What is the largest organ in the human body?",
