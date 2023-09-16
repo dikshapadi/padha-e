@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <div id="mentee_list"></div>
+</head>
+<body>
+
+
+    <script>
+         const firebaseConfig = {
+          apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
+          authDomain: "sih-e-f67f9.firebaseapp.com",
+          databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
+          projectId: "sih-e-f67f9",
+          storageBucket: "sih-e-f67f9.appspot.com",
+          messagingSenderId: "113038032158",
+          appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
+          measurementId: "G-FWVHBTC79W"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = app.auth();
+        const database = app.database();
+
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // If user is authenticated, load mentees
+                loadMentees();
+            } else {
+                console.log("No authenticated user. Please log in or register.");
+            }
+        });
+
+        function loadMentees() {
+            const menteeListDiv = document.getElementById("mentee_list");
+
+            // Clear the list
+            menteeListDiv.innerHTML = '';
+
+            // Get the current user ID
+            const currentUser = auth.currentUser;
+            if (currentUser) {
+                const currentUserId = currentUser.uid;
+
+                // Reference to the users in Firebase
+                const usersRef = database.ref('users');
+
+                // Listen for changes
+                usersRef.on('value', (snapshot) => {
+                    if (snapshot.exists()) {
+                        const allUsers = snapshot.val();
+
+                        // Loop through all users and filter those who are students and have this user as a mentor
+                        for (const userId in allUsers) {
+                            const user = allUsers[userId];
+                            if (user.youAre === 'student' && user.mentor === currentUserId) {
+                                
+                                // Create an element to display the mentee name
+                                const menteeElement = document.createElement("div");
+                                menteeElement.textContent = user.name;
+                                menteeListDiv.appendChild(menteeElement);
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+         <script>
+          const name = getCookie('username');
+          document.getElementById('user-name').textContent = name;
+          document.body.style.display = "block";
+      
+          function getCookie(name) {
+            const cookieName = name + "=";
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+              let cookie = cookies[i];
+              while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1);
+              }
+              if (cookie.indexOf(cookieName) === 0) {
+                return cookie.substring(cookieName.length, cookie.length);
+              }
+            }
+            return null; // Return null if the cookie is not found
+          }
+        </script>
+  
+    
+</body>
+</html>

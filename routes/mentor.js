@@ -12,4 +12,8 @@ router.get("/mentor/Research", (req, res) => {
   res.render("mentor/Research");
 });
 
+router.get("/mentor/mentee", (req, res) => {
+  res.render("mentor/mentee");
+});
+
 export default router;
