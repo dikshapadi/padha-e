@@ -34,7 +34,7 @@
             right: 260px; /* Adjust the right position to your preference */
     }
     body{
-      background-color: blue;
+      display: none;
     }
     /* Popup container */
 .popup {
@@ -218,13 +218,21 @@
              
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="getMentorshipBtn">
             <a class="nav-link" href="/primary/mentorform">
               <i class="menu-icon mdi mdi-human-greeting"></i>
-              <span id="getMentorshipBtn" class="menu-title" style="font-size: 16px;font-weight: bolder;">Get mentorship!</span>
+              <span  class="menu-title" style="font-size: 16px;font-weight: bolder;">Get mentorship!</span>
+            </a>
+          </li>
+          <li class="nav-item" id="Mentor">
+            <a class="nav-link" href="/primary/mentor">
+              <i class="menu-icon mdi mdi-human-greeting"></i>
+              <span class="menu-title" style="font-size: 16px;">My mentor</span>
+  
             </a>
           </li>
         </ul>
+        
         <img src="/images/scooby.png" alt="" class="overlay">
       </nav>
       <!-- partial -->
@@ -438,7 +446,7 @@
 
       if (!user) {
         // Redirect to the login page if not authenticated
-        window.location.href = '/home'; // Replace with your login page URL
+        window.location.href = '/login/index'; // Replace with your login page URL
         return;
       }
 
@@ -449,8 +457,19 @@
       // Retrieve user data for the authenticated user
       const userData = await getUserData(authenticatedUserId);
 
+      if (userData.hasOwnProperty('mentor')) {
+            // Hide the 'Get mentorship' button if the 'mentor' key exists
+            document.getElementById('getMentorshipBtn').style.display = 'none';
+          } else {
+            // Hide the 'mentor' button if the 'mentor' key does not exist
+            document.getElementById('Mentor').style.display = 'none';
+          }
+
+          document.body.style.display = "block";
+
       // Update the page content with user-specific data
       document.getElementById('user-name').textContent = userData.name;
+      document.body.style.display = "block";
       plotSubjectPieChart(authenticatedUserId);
 
     } catch (error) {
