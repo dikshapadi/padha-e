@@ -34,7 +34,15 @@ router.get("/primary/quiz", (req, res) => {
     res.render("primary/schedule");
   });
 
+  router.get('/primary/mentor',(req,res) =>{
+    res.render("primary/mentor");
+  });
+
   router.get("/home", (req,res) => {
+    res.render("home/main");
+  });
+  
+  router.get("/primary/main", (req,res) => {
     res.render("home/main");
   });
 

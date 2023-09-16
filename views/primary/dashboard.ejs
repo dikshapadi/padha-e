@@ -28,6 +28,9 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="/img/favicon.ico" />
   <style>
+      body {
+      display: none;
+    }
     #google_translate_element {
             position: absolute;
             top: 20px; /* Adjust the top position to your preference */
@@ -143,7 +146,8 @@
               <div class="dropdown-header text-center">
               </div>
               <a class="dropdown-item" href="/primary/profile"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
-              <a class="dropdown-item" href="/"><i class="dropdown-item-icon mdi mdi-power text-primary me-2" onclick="signOut();"></i>Sign Out</a>
+              <a class="dropdown-item" href="#" onclick="signOut();"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+
             </div>
           </li>
         </ul>
@@ -217,11 +221,18 @@
               <span class="menu-title" style="font-size: 16px;font-weight: bolder;">Apply financial aid</span>
              
             </a>
-          </li>
-          <li class="nav-item">
+          <li class="nav-item" id="getMentorshipBtn">
             <a class="nav-link" href="/primary/mentorform">
               <i class="menu-icon mdi mdi-human-greeting"></i>
-              <span id="getMentorshipBtn" class="menu-title" style="font-size: 16px;font-weight: bolder;">Get mentorship!</span>
+              <span class="menu-title" style="font-size: 16px;">Get mentorship</span>
+
+            </a>
+          </li>
+          <li class="nav-item" id="Mentor">
+            <a class="nav-link" href="/primary/mentor">
+              <i class="menu-icon mdi mdi-human-greeting"></i>
+              <span class="menu-title" style="font-size: 16px;">mentor</span>
+
             </a>
           </li>
         </ul>
@@ -396,140 +407,150 @@
   <script>
     console.log("hello ");
     const firebaseConfig = {
-          apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
-          authDomain: "sih-e-f67f9.firebaseapp.com",
-          databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
-          projectId: "sih-e-f67f9",
-          storageBucket: "sih-e-f67f9.appspot.com",
-          messagingSenderId: "113038032158",
-          appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
-          measurementId: "G-FWVHBTC79W"
-      };
+      apiKey: "AIzaSyBD6ZsOT1P4lPZbQ0HVYHZrPGvaPk274ds",
+      authDomain: "sih-e-f67f9.firebaseapp.com",
+      databaseURL: "https://sih-e-f67f9-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      projectId: "sih-e-f67f9",
+      storageBucket: "sih-e-f67f9.appspot.com",
+      messagingSenderId: "113038032158",
+      appId: "1:113038032158:web:6b01cde8843a62e8841d0f",
+      measurementId: "G-FWVHBTC79W"
+    };
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const database = app.database();
-  const auth = app.auth();
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = app.database();
+    const auth = app.auth();
 
-  // Function to check user authentication
-  function checkAuthentication() {
-    return new Promise((resolve) => {
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          resolve(user);
-        } else {
-          resolve(null);
-        }
+    // Function to check user authentication
+    function checkAuthentication() {
+      return new Promise((resolve) => {
+        auth.onAuthStateChanged((user) => {
+          if (user) {
+            resolve(user);
+          } else {
+            resolve(null);
+          }
+        });
       });
-    });
-  }
+    }
 
-  // Function to retrieve user data from Firebase Realtime Database
-  async function getUserData(userId) {
-    const snapshot = await database.ref(`/users/${userId}`).once('value');
-    return snapshot.val();
-  }
+    // Function to retrieve user data from Firebase Realtime Database
+    async function getUserData(userId) {
+      const snapshot = await database.ref(`/users/${userId}`).once('value');
+      return snapshot.val();
+    }
 
-  // Main function to handle user authentication and data retrieval
-  async function main() {
-    try {
-      // Check user authentication
-      const user = await checkAuthentication();
+    // Main function to handle user authentication and data retrieval
+    async function main() {
+      try {
+        // Check user authentication
+        const user = await checkAuthentication();
 
-      if (!user) {
-        // Redirect to the login page if not authenticated
-        window.location.href = '/home'; // Replace with your login page URL
+        if (!user) {
+          // Redirect to the login page if not authenticated
+          window.location.href = '/home'; // Replace with your login page URL
+          return;
+        }
+
+        // Get the authenticated user's ID
+        const authenticatedUserId = user.uid;
+        setCookie('userId', authenticatedUserId, 1);
+
+        // Retrieve user data for the authenticated user
+        const userData = await getUserData(authenticatedUserId);
+
+        if (userData.hasOwnProperty('mentor')) {
+          // Hide the 'Get mentorship' button if the 'mentor' key exists
+          document.getElementById('getMentorshipBtn').style.display = 'none';
+        } else {
+          // Hide the 'mentor' button if the 'mentor' key does not exist
+          document.getElementById('Mentor').style.display = 'none';
+        }
+
+        document.body.style.display = "block";
+
+        // Update the page content with user-specific data
+        document.getElementById('user-name').textContent = userData.name;
+        setCookie('username', userData.name, 1);
+        plotSubjectPieChart(authenticatedUserId);
+
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    // Call the main function when the page is loaded
+    window.addEventListener('load', main);
+
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      const expires = "expires=" + date.toUTCString();
+      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+  </script>
+  <script>
+    async function plotSubjectPieChart(userId) {
+      const userData = await getUserData(userId);
+
+      if (!userData.quiz || Object.keys(userData.quiz).length === 0) {
+        const ctx = document.getElementById('subjectPieChart').getContext('2d');
+        ctx.font = "25px Arial";
+        ctx.fillText("No Quiz Data Available", 0, 50);// firiendly message if no quiz daa is available
         return;
       }
 
-      // Get the authenticated user's ID
-      const authenticatedUserId = user.uid;
-      setCookie('userId', authenticatedUserId, 1);
+      const quizData = userData.quiz || {};
+      const subjectScores = {};
 
-      // Retrieve user data for the authenticated user
-      const userData = await getUserData(authenticatedUserId);
-
-      // Update the page content with user-specific data
-      document.getElementById('user-name').textContent = userData.name;
-      plotSubjectPieChart(authenticatedUserId);
-
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-
-  // Call the main function when the page is loaded
-  window.addEventListener('load', main);
-
-  function setCookie(name, value, days) {
-  const date = new Date();
-  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-  const expires = "expires=" + date.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-  </script>
-    <script>
-      async function plotSubjectPieChart(userId) {
-    const userData = await getUserData(userId);
-    
-    if (!userData.quiz || Object.keys(userData.quiz).length === 0) {
-    const ctx = document.getElementById('subjectPieChart').getContext('2d');
-    ctx.font = "25px Arial";
-    ctx.fillText("No Quiz Data Available", 0, 50);// firiendly message if no quiz daa is available
-    return;
-  }
-    
-    const quizData = userData.quiz || {};
-    const subjectScores = {};
-  
-    for (const classId in quizData) {
-      for (const subject in quizData[classId]) {
-        if (!subjectScores[subject]) {
-          subjectScores[subject] = [];
+      for (const classId in quizData) {
+        for (const subject in quizData[classId]) {
+          if (!subjectScores[subject]) {
+            subjectScores[subject] = [];
+          }
+          subjectScores[subject].push(quizData[classId][subject]);
         }
-        subjectScores[subject].push(quizData[classId][subject]);
       }
-    }
-    
-    const subjectNames = Object.keys(subjectScores);
-    const averagedScores = subjectNames.map((subject) => {
-      const scores = subjectScores[subject];
-      const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
-      return averageScore;
-    });
-  
-    const ctx = document.getElementById('subjectPieChart').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: subjectNames,
-        datasets: [{
-          data: averagedScores,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.5)',
-            'rgba(54, 162, 235, 0.5)',
-            'rgba(255, 206, 86, 0.5)',
-            'rgba(75, 192, 192, 0.5)'
-          ],
-        }]
-      },
-      options: {
-        plugins: {
-          legend: {
-            display: true,
-            labels: {
-              boxWidth: 50,
-              padding: 10,
+
+      const subjectNames = Object.keys(subjectScores);
+      const averagedScores = subjectNames.map((subject) => {
+        const scores = subjectScores[subject];
+        const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
+        return averageScore;
+      });
+
+      const ctx = document.getElementById('subjectPieChart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: subjectNames,
+          datasets: [{
+            data: averagedScores,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.5)',
+              'rgba(54, 162, 235, 0.5)',
+              'rgba(255, 206, 86, 0.5)',
+              'rgba(75, 192, 192, 0.5)'
+            ],
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+              labels: {
+                boxWidth: 50,
+                padding: 10,
+              },
             },
           },
         },
-      },
-    });
-  }
-  
-    </script>
+      });
+    }
 
+  </script>
+<script src="/js/signout.js"></script>
   <script src="/vendors/js/vendor.bundle.base.js"></script>
   <script src="/vendors/chart.js/Chart.min.js"></script>
   <script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>

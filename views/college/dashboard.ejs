@@ -97,8 +97,7 @@
                 </div>
                 <a class="dropdown-item" href="/college/profile"><i
                     class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
-                <a class="dropdown-item" href="/"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign
-                  Out</a>
+                    <a class="dropdown-item" href="#" onclick="signOut();"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
               </div>
           </li>
         </ul>
@@ -521,6 +520,8 @@
 
           // Update the page content with user-specific data
           document.getElementById('user-name').textContent = userData.name;
+          setCookie('username', userData.name, 1);
+          
           plotSubjectPieChart(authenticatedUserId);
 
         } catch (error) {
