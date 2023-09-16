@@ -63,6 +63,22 @@
         top: 20px; /* Adjust the top position to your preference */
         right: 260px; /* Adjust the right position to your preference */
     }
+    /* styles.css */
+.image-container {
+    position: relative; /* Make the container a positioning context */
+    display: inline-block; /* Make the container only as wide as the image */
+}
+
+.text-overlay {
+    position: absolute; /* Position the text relative to the container */
+    top: 50%; /* Adjust the top position to center vertically */
+    left: 50%; /* Adjust the left position to center horizontally */
+    transform: translate(-50%, -50%); /* Center the text precisely */
+    background-color: rgba(0, 0, 0, 0.7); /* Add a background color to the text */
+    color: white; /* Text color */
+    padding: 10px; /* Add padding for better readability */
+}
+
 
     
 
@@ -224,6 +240,9 @@
                                         <div class="card card-fixed-height">
                                           <div class="card-body-custom">
                                             <img src="https://tse4.mm.bing.net/th?id=OIP._AcBYbM5gGms_hHwJYZojgHaEx&pid=Api&P=0&h=180" class="card-img-top" alt="Image 1" style="width: 370px;height: 200px;">
+                                            <div class="text-overlay">
+                                              <p style="font-size: 30px;font-weight: bolder;">Biotechnology</p>
+                                          </div>
                                           </div>
                                         </div>
                                       </div>
@@ -238,6 +257,9 @@
                   <div class="card card-fixed-height">
                     <div class="card-body-custom">  
                       <img src="https://tse4.mm.bing.net/th?id=OIP.LvHdOkJbkfa_8aCyf-fqegHaE9&pid=Api&P=0&h=180" class="card-img-top" alt="Image 2" style="width: 370px;height: 200px;">
+                      <div class="text-overlay">
+                        <p style="font-size: 30px;font-weight: bolder;">Astronomy</p>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -253,6 +275,9 @@
                   <div class="card card-fixed-height">
                     <div class="card-body-custom">
                       <img src="https://tse1.mm.bing.net/th?id=OIP.qwAdEBdB8zkaC73T_9L9igAAAA&pid=Api&P=0&h=180" class="card-img-top" alt="Image 3" style="width: 370px;height: 200px;">
+                      <div class="text-overlay">
+                        <p style="font-size: 30px;font-weight: bolder;">Meteorology</p>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -266,6 +291,9 @@
                   <div class="card card-fixed-height">
                     <div class="card-body-custom">
                       <img src="https://tse2.mm.bing.net/th?id=OIP.d6GoLabqIbCL_q9iSBhvUQHaE8&pid=Api&P=0&h=180" class="card-img-top" alt="Image 4" style="width: 370px;height: 200px;">
+                      <div class="text-overlay">
+                        <p style="font-size: 30px;font-weight: bolder;">Equity</p>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -277,15 +305,18 @@
           <div class="row">
             <!-- Fifth Card -->
             <div class="col-md-6 mb-4">
-              <a href="https://business.gov.au/Grants-and-Programs/Research-and-Development-Tax-Incentive">
+              <a href="https://dst.gov.in/cognitive-science-research-initiative-csri">
                 <div class="card card-spacing">
                   <div class="card card-fixed-height">
                     <div class="card-body-custom">
-                      <img src="https://tse1.mm.bing.net/th?id=OIP.dUNWs5YJobVRKd9l4_X7qwHaHa&pid=Api&P=0&h=180" class="card-img-top" alt="Image 5" style="width: 370px;height: 200px;">
+                      <img src="/images/brain.jpg" class="card-img-top" alt="Image 5" style="width: 370px;height: 200px;">
+                      <div class="text-overlay">
+                        <p style="font-size: 30px;font-weight: bolder;text-align: center;">Cognition</p>
+                    </div>
                     </div>
                   </div>
                 </div>
-              </a>
+              </a>  
             </div>
           
             <!-- Sixth Card -->
@@ -295,6 +326,9 @@
                   <div class="card card-fixed-height">
                     <div class="card-body-custom">
                       <img src="https://tse4.mm.bing.net/th?id=OIP.DM_wUdQ9Ia-1M9s_JNpvugHaE7&pid=Api&P=0&h=180" class="card-img-top" alt="Image 6" style="width: 370px;height: 200px;">
+                      <div class="text-overlay">
+                        <p style="font-size: 30px;font-weight: bolder;text-align: center;">Women Entrepreneurship</p>
+                    </div>
                     </div>
                   </div>
                 </div>
