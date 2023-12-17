@@ -40,4 +40,16 @@ router.get("/college/mentor", (req,res) => {
 	res.render("college/mentor");
 });
 
+router.get("/college/image", (req,res) => {
+	res.render("college/image");
+});
+
+router.get("/college/punc", (req,res) => {
+	res.render("college/punc");
+});
+
+router.get("/college/road", (req,res) => {
+	res.render("college/road");
+});
+
 export default router;
